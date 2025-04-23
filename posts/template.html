@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>dead1nfluence | Blog Post Title</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff00;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem;
+    }
+
+    h1, h2, h3, a, p, code, pre {
+      color: #00ff00;
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .post {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    pre {
+      background-color: #111;
+      padding: 1rem;
+      border: 1px solid #00ff00;
+      text-align: left;
+      overflow-x: auto;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+
+    .back-link {
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="post">
+    <h1>> NTLM Relay Beyond SMB Signing</h1>
+    <div class="meta">Posted: April 23, 2025 | Author: dead1nfluence</div>
+
+    <p>SMB signing is enabled across the domain? That’s not the end. In this post, we look at alternate services, fallback channels, and clever coercion paths that keep the relay alive.</p>
+
+    <h2>[~] Alternate Targets</h2>
+    <p>Services like LDAP, RPC, and Exchange expose relay paths, even with signing on. Particularly, if LDAP signing is disabled or LDAPS allows weak channel binding settings.</p>
+
+    <h2>[~] Example Responder Config</h2>
+    <pre><code>[Responder]
+SMB = Off
+HTTP = On
+LDAP = On
+</code></pre>
+
+    <h2>[~] Real-World Payload Drop</h2>
+    <p>Here’s a command used in a live engagement:</p>
+    <pre><code>impacket-ntlmrelayx -t ldap://10.10.0.5 --delegate-access --escalate-user jsmith</code></pre>
+
+    <div class="back-link">
+      <a href="../index.html">[*] Back to main</a>
+    </div>
+  </div>
+
+</body>
+</html>
