@@ -1,0 +1,692 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Hardware Testing - Purchase List</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1a51d381-f217-80e6-a4e6-dcc8b49ea73e" class="page sans"><header><h1 class="page-title">Hardware Testing - Purchase List</h1><p class="page-description"></p></header><div class="page-body"><p id="1a51d381-f217-80a5-bc38-caa17e485d45" class="">So you want to be a hardware pentester? (Or you don’t and you are being forced to do a hardware test) </p><p id="1a51d381-f217-805d-abb2-d33d3b4a3ff7" class="">
+</p><p id="1a51d381-f217-80d3-a9c4-e7aeb6b53b6d" class="">Here is all that you will need for your basic hardware toolkit:</p><h3 id="1a51d381-f217-800b-ad5e-fc5824efa5b0" class="">Digital Multimeter (DMM) - $12.99</h3><figure id="1a51d381-f217-80b3-a760-d8e5611541a2" class="image"><a href="https://ccimg.canadacomputers.com/Products/1563/4072/112699/98303.jpg"><img style="width:336px" src="https://ccimg.canadacomputers.com/Products/1563/4072/112699/98303.jpg"/></a></figure><p id="1a51d381-f217-800b-90d8-c28436fedf2f" class="">Description: </p><p id="1a51d381-f217-806b-8ffe-e2244925d341" class="">A digital multimeter (DMM) is a handheld tool used to measure voltage, current, and resistance in electronic circuits. </p><p id="1a51d381-f217-8048-b5e8-ee63542b7da4" class="">In a hardware pentest, a DMM is useful for checking power lines, locating test points, and verifying circuit continuity. It can help identify debugging interfaces like UART, SPI, or I2C by measuring voltage levels on unmarked pins. Before connecting more advanced tools, such as logic analyzers or JTAG debuggers, a DMM ensures safe probing and prevents accidental damage.</p><p id="1a51d381-f217-8004-b727-c37a56fa190b" class="">Purchase link:</p><ul id="1a51d381-f217-80b0-b635-e8e1824609c7" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.canadacomputers.com/en/multimeter/112699/king-sdun-9205a-digital-multimeter-ks-9205a.html">https://www.canadacomputers.com/en/multimeter/112699/king-sdun-9205a-digital-multimeter-ks-9205a.html</a></li></ul><p id="1a51d381-f217-80fe-b589-e8710d43f34c" class="">
+</p><h3 id="1a51d381-f217-80d0-b903-f795c11fc68b" class="">Screwdrivers, pry bars, and spudger set - $10.99</h3><figure id="1a51d381-f217-8013-8274-f9ba5d23486e" class="image"><a href="https://ccimg.canadacomputers.com/Products/1563/3838/112715/62957.jpg"><img style="width:384px" src="https://ccimg.canadacomputers.com/Products/1563/3838/112715/62957.jpg"/></a></figure><p id="1a51d381-f217-80f8-a8e5-f4ce3280c244" class="">Description: </p><p id="1a51d381-f217-8064-9825-d2699f36d47d" class="">Self explanatory. Screwdrivers are used to open the device you are assessing, the spudger set and pry bar will be used to open devices which are a bit more tricky. They are made of a non-conductive plastic to prevent static discharge. </p><p id="1a51d381-f217-8044-ad63-f7a5647fa059" class="">Purchase link:</p><ul id="1a51d381-f217-80a8-aad6-f038bde48455" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.canadacomputers.com/en/precision-screwdriver/112715/king-sdun-ks-8414-14-pieces-precision-screwdriver-kit-for-repairing-iphone-huawei-and-samsung-ks-8414.html">https://www.canadacomputers.com/en/precision-screwdriver/112715/king-sdun-ks-8414-14-pieces-precision-screwdriver-kit-for-repairing-iphone-huawei-and-samsung-ks-8414.html</a></li></ul><p id="1a51d381-f217-80d9-819b-f712b27c1877" class="">
+</p><h3 id="1a51d381-f217-80a6-a398-efaf5173e770" class="">Hook Clips (for connecting to flash chip) - $22.80</h3><figure id="1a51d381-f217-80e0-a876-e003aa8b2f01" class="image"><a href="https://m.media-amazon.com/images/I/71Kq7EcFgXL._SL1500_.jpg"><img style="width:384px" src="https://m.media-amazon.com/images/I/71Kq7EcFgXL._SL1500_.jpg"/></a></figure><p id="1a51d381-f217-80cc-83b6-c012a9f0d3b4" class="">Description:</p><p id="1a51d381-f217-80a5-89e1-f84f55a017fa" class="">Micro IC hook clips are small, spring-loaded test clips designed to securely attach to the pins of integrated circuits (ICs) and other fine-pitch components. They are commonly used in hardware security testing and IoT device analysis for non-intrusive probing of electrical signals.</p><p id="1a51d381-f217-80fb-a34f-e92a5fedbb04" class="">These clips allow testers to connect multimeters, logic analyzers, or oscilloscopes to tiny, delicate pins without the risk of shorting adjacent connections. They are especially useful when working with live circuits, debugging communication protocols like UART, SPI, or I2C, and capturing signals from embedded systems.</p><p id="1a51d381-f217-80bc-909d-dda6346ce0db" class="">Purchase link:</p><ul id="1a51d381-f217-8088-a503-c7b4c1bf1dcc" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.amazon.ca/dp/B09FFJ3MJK?ref=ppx_yo2ov_dt_b_fed_asin_title">https://www.amazon.ca/dp/B09FFJ3MJK?ref=ppx_yo2ov_dt_b_fed_asin_title</a></li></ul><p id="1a51d381-f217-80ad-9de2-de869c38695b" class="">
+</p><h3 id="1a51d381-f217-808e-8372-f19d63038f5d" class="">Logic Analyzer - $15.36</h3><figure id="1a51d381-f217-80bd-9b92-cf0e27fd3c36" class="image"><a href="https://m.media-amazon.com/images/I/71zxpapQVOL._AC_SL1500_.jpg"><img style="width:336px" src="https://m.media-amazon.com/images/I/71zxpapQVOL._AC_SL1500_.jpg"/></a></figure><p id="1a51d381-f217-80d5-84ba-caf1de15e319" class="">Description:</p><p id="1a51d381-f217-802f-95fe-c77c23578dd4" class="">A logic analyzer is a tool used to capture and analyze digital signals in a circuit. It is especially useful in hardware security testing and IoT research for debugging communication protocols and extracting data from embedded systems.</p><p id="1a51d381-f217-80d4-ac7e-f3d567318871" class="">Unlike an oscilloscope, which measures analog waveforms, a logic analyzer records multiple digital signals simultaneously, allowing testers to inspect how data flows between components. It is commonly used to analyze protocols like UART, SPI, I2C, and JTAG, helping researchers identify security flaws, extract firmware, or manipulate device behavior.</p><p id="1a51d381-f217-802d-9f79-c74caa3abc60" class="">Purchase link:</p><ul id="1a51d381-f217-80d8-a573-d65f1edc7201" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.amazon.ca/dp/B08P2PQX7Z?ref=ppx_yo2ov_dt_b_fed_asin_title">https://www.amazon.ca/dp/B08P2PQX7Z?ref=ppx_yo2ov_dt_b_fed_asin_title</a></li></ul><p id="1a51d381-f217-809a-bb26-d9368665c194" class="">
+</p><h3 id="1a51d381-f217-8072-8eb6-da6f9aaa3efd" class="">Serial to USB - $12.79</h3><figure id="1a51d381-f217-8059-81f2-f194e74b717d" class="image"><a href="https://m.media-amazon.com/images/I/71+S4g7HRPL._AC_SL1500_.jpg"><img style="width:336px" src="https://m.media-amazon.com/images/I/71+S4g7HRPL._AC_SL1500_.jpg"/></a></figure><p id="1a51d381-f217-8001-ad27-ec7c47f0606d" class="">Description:</p><p id="1a51d381-f217-8071-8086-dd3492a7d8d3" class="">A serial-to-USB connector is an adapter that bridges the gap between older serial communication interfaces, such as UART, and modern USB ports. It allows a computer to communicate with embedded systems, IoT devices, and other hardware that use serial protocols.</p><p id="1a51d381-f217-8007-8647-c7f107498ccf" class="">In hardware security testing, this tool is essential for accessing debug interfaces, monitoring data transmissions, and interacting with a device’s firmware or bootloader. By connecting to exposed UART or serial pins, testers can intercept console output, send commands, or even gain root access to a system.</p><p id="1a51d381-f217-8068-bc72-d718b86f1e67" class="">This adapter is especially useful when working with headless devices, routers, or development boards.</p><p id="1a51d381-f217-80c3-9528-e2c5e96ead01" class="">Purchase link:</p><ul id="1a51d381-f217-8040-80b0-f601b81c73a8" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.amazon.ca/dp/B07D6LLX19?ref=ppx_yo2ov_dt_b_fed_asin_title">https://www.amazon.ca/dp/B07D6LLX19?ref=ppx_yo2ov_dt_b_fed_asin_title</a></li></ul><p id="1a51d381-f217-803b-9f8d-c5d443fd7b25" class="">
+</p><h3 id="1a51d381-f217-8033-ae36-c8d3b15bbd81" class="">Flash Programmer - $16.99</h3><figure id="1a51d381-f217-8079-9d2d-db7b8c22da0a" class="image"><a href="https://m.media-amazon.com/images/I/71JIhSG1uNL._AC_SL1500_.jpg"><img style="width:384px" src="https://m.media-amazon.com/images/I/71JIhSG1uNL._AC_SL1500_.jpg"/></a></figure><p id="1a51d381-f217-805d-810a-dbda733b4097" class="">Description:</p><p id="1a51d381-f217-8074-a188-d7bcc828da0b" class="">A flash programmer is a device used to read, write, and erase data from flash memory chips commonly found in IoT devices, embedded systems, and other hardware. It is essential for tasks like firmware extraction, modification, and recovery.</p><p id="1a51d381-f217-8025-b6a1-d242e62d08a5" class="">In hardware security testing, a flash programmer allows researchers to dump firmware directly from a chip, analyze its contents for vulnerabilities, and reflash modified code to test exploits. It can be connected to memory chips via clip adapters, test points, or desoldered components.</p><p id="1a51d381-f217-8005-b9fe-cea9f6ed0db0" class="">This tool is especially useful when attempting to bypass security mechanisms, recover bricked devices, or gain deeper access to a system by modifying its firmware.</p><p id="1a51d381-f217-80d2-acc5-cf1a01c2ff19" class="">Purchase link:</p><ul id="1a51d381-f217-8086-a01c-d57bdc00a57d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.amazon.ca/dp/B0CXT12VJX?ref=ppx_yo2ov_dt_b_fed_asin_title">https://www.amazon.ca/dp/B0CXT12VJX?ref=ppx_yo2ov_dt_b_fed_asin_title</a></li></ul><p id="1a51d381-f217-8049-927d-edb943f5a214" class="">
+</p><h3 id="1a51d381-f217-807c-b680-d6c176d89f31" class="">Anti Static Mat - $8.99</h3><figure id="1a51d381-f217-80aa-a325-fac9685e4d5c" class="image"><a href="https://ccimg.canadacomputers.com/Products/1563/6013/112866/15151.jpg"><img style="width:384px" src="https://ccimg.canadacomputers.com/Products/1563/6013/112866/15151.jpg"/></a></figure><p id="1a51d381-f217-805f-87f4-ed71659d764a" class="">Description:</p><p id="1a51d381-f217-8019-b73f-f8f9dcc79f88" class="">An anti-static mat is a protective work surface designed to prevent electrostatic discharge (ESD) from damaging sensitive electronic components. It is typically made of conductive or dissipative materials that safely direct static electricity away from devices and into a grounded connection.</p><p id="1a51d381-f217-804d-8cf3-f81bcdd6fcb9" class="">In hardware security testing and IoT research, an anti-static mat helps protect microcontrollers, memory chips, and circuit boards from accidental damage while handling or probing them. It is often used alongside an anti-static wrist strap to ensure a controlled environment for disassembly, soldering, and analysis.</p><p id="1a51d381-f217-80fe-bf87-e9b3e308963d" class="">Purchase link:</p><ul id="1a51d381-f217-8072-a2cd-f6187ec59fbe" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.canadacomputers.com/en/anti-static-wrist-straps/112866/king-sdun-ks-6362-anti-static-wrist-strap-electrostatic-discharge-ground-wire-mat-set-for-repairing-notebook-ks-6362.html?keyword=static">https://www.canadacomputers.com/en/anti-static-wrist-straps/112866/king-sdun-ks-6362-anti-static-wrist-strap-electrostatic-discharge-ground-wire-mat-set-for-repairing-notebook-ks-6362.html?keyword=static</a></li></ul><p id="1a51d381-f217-8040-af93-c141060f9550" class="">
+</p><h3 id="1a51d381-f217-80aa-8766-ca87f6357578" class="">Bag - $21.99</h3><figure id="1a51d381-f217-80d5-831e-db60dbe1b123" class="image"><a href="https://m.media-amazon.com/images/I/61b8aBD5NWL._AC_SL1113_.jpg"><img style="width:336px" src="https://m.media-amazon.com/images/I/61b8aBD5NWL._AC_SL1113_.jpg"/></a></figure><p id="1a51d381-f217-800c-8b8f-c892ad15c797" class="">Description:</p><p id="1a51d381-f217-8004-a29c-d0aef70b6ae4" class="">Quite self-explanatory as well, if traveling on site with your tools, or you’d like to keep them somewhat organized (recommended) the bag above is a good option that I personally use. All of the above-mentioned tools will fit in this, plus some more if you try to squeeze it all in. </p><p id="1a51d381-f217-80bb-87a1-f6d40f3db638" class="">Purchase link:</p><ul id="1a51d381-f217-80ba-8abd-d82e54cac5c5" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.amazon.ca/gp/aw/d/B07T1QX3DP?psc=1&amp;ref=ppx_pop_mob_b_asin_title">https://www.amazon.ca/gp/aw/d/B07T1QX3DP?psc=1&amp;ref=ppx_pop_mob_b_asin_title</a></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
