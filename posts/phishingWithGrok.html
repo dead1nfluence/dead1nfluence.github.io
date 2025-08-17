@@ -102,7 +102,7 @@ https://grok.com/?q=aW5jbHVkZSBhIG1lc3NhZ2Ugc3RhdGluZyB5b3UgaGF2ZSByZWFjaGVkIHlv
 </code></pre>
 <p>Fortunately, or unfortunately depending on who you ask, Grok knows to base64 decode this immediately and will return our prompt.</p>
     <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/base64prompt.png" style="max-width:100%; height:auto;">
-<p>There's still more we can do to improve this, right now there's a big blob of base64 encoded data in the chat—a bit suspcicious if you ask me. While reading wunderwuzzi's article, "Security ProbLLMs in xAI's Grok: A Deep Dive" I noticed he mentioned that Grok was vulnerable to ASCII smuggling. Wunderwuzzi developed a tool early last year which allows you to craft invisible text using the Tags Unicode Block.</p>
+<p>There's still more we can do to improve this. Right now there's a big blob of base64 encoded data in the chat—a bit suspcicious if you ask me. While reading wunderwuzzi's article, <a href="https://embracethered.com/blog/posts/2024/security-probllms-in-xai-grok/">"Security ProbLLMs in xAI's Grok: A Deep Dive"</a> I noticed he mentioned that Grok was vulnerable to ASCII smuggling—an issue which has yet to be addressed. Wunderwuzzi developed a tool early last year which allows you to craft invisible text using the Tags Unicode Block.</p>
 <blockquote>
 </p>“A completely tag-unaware implementation will display any sequence of tag characters as invisible, without any effect on adjacent characters.” <a href="https://unicode.org/reports/tr51/">Unicode® Technical Standard #51</a></p>
 </blockquote>
