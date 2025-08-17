@@ -67,8 +67,8 @@
     <h1>> Phishing With Grok</h1>
     <div class="meta">Posted: August 17th, 2025 | Author: dead1nfluence</div>
    
-   <p>While reviewing Archive.org for other issues related to chat sharing, I came across an interesting set of URLS which had been archived. Each of these used the parameter q= and when they are opened while authenticated, the value assigned to the parameter was automatically sent in a new chat. </p>
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/grokQuery1.png" style="max-width:100%; height:auto;">
+   <p>While reviewing Archive.org for other issues related to chat sharing (see my previous article on this <a href="https://julian-b.xyz/posts/llmChatReview.html">I scraped every public LLM chat so you didn't have to</a>), I came across an interesting set of URLS which had been archived. Each of these used the parameter q= and when they are opened while authenticated the value assigned to the parameter would be automatically sent in a new chat. </p>
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/queryUrls.png.png" style="max-width:100%; height:auto;">
 <p>For the most part, those which had been saved by the Archive were innocuous. It's likely that these were URLs shared over Twitter or on other websites. It's an interesting feature to implement because it is, essentially, a cross-site request forgery (CSRF).</p>
 
 <p>It raised a question in my mind: "Are threat actors using this?"</p>
