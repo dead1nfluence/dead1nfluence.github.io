@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta property="og:title" content="My Blog Post Title">
+  <meta property="og:description" content="A short summary of my blog post so people know what it's about.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yourusername.github.io/blog/post-url">
+  <meta property="og:image" content="https://yourusername.github.io/blog/images/preview.png">
+
+  <title>dead1nfluence | SpamTitan</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #d3d7cf;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #d3d7cf;
+      text-align: center;
+    }
+
+    a {
+      color: #d3d7cf;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .post {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+      text-align: center;
+    }
+
+    p {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+
+    pre {
+      background-color: #111;
+      padding: 1rem;
+      border: 1px solid #d3d7cf;
+      text-align: left;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-link {
+      margin-top: 3rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="post">
+    <h1>> Unauthenticated User Creation in SpamTitan</h1>
+<div class="meta">Posted: August 20, 2025 | Author: dead1nfluence</div>
+
+<h2>[~] Overview</h2>
+<p>The file <code>quarantine.php</code> within the SpamTitan interface allows unauthenticated users to trigger account-level actions using a crafted GET request. Notably, when a non-existent email address is provided as part of the <code>email</code> parameter, SpamTitan will automatically create a user record and associate quarantine settings with it — all without requiring authentication.</p>
+
+<p>This allows an attacker to manipulate internal application behavior or inject data into the user base, potentially leading to privilege escalation paths or information leaks in misconfigured environments.</p>
+
+<h2>[~] Technical Details</h2>
+<p><strong>Affected Endpoint:</strong> <code>quarantine.php</code></p>
+
+<p>Unauthenticated request triggers user creation:</p>
+<pre><code>/quarantine.php?language=en&role_type=admin&action=setperiod&
+email=admin@attacker.com&period=WD&secret_id=1</code></pre>
+
+<p><strong>Pseudo-code logic:</strong></p>
+<pre><code>$email = $_GET['email'];
+if (!empty($email)) {
+    $user_id = db_getmaddr_id($email); 
+}</code></pre>
+
+<p><strong>Helper function (simplified behavior):</strong></p>
+<pre><code>function db_getmaddr_id($email, $create = 1) {
+    if (not exists in `maddr` table and $create == 1) {
+        INSERT INTO maddr (email, domain)
+    }
+    return user_id;
+}</code></pre>
+
+<ul>
+<li>Because <code>db_getmaddr_id($email)</code> is invoked with only one argument, the default value <code>$create = 1</code> is used, which triggers implicit user creation.</li>
+<li>No session or authentication checks are performed prior to executing the action.</li>
+<li>The <code>role_type</code> parameter (e.g., <code>admin</code>) is accepted via query string but never validated.</li>
+</ul>
+
+<h2>[~] Proof of Concept</h2>
+<pre><code>GET /quarantine.php?language=en&role_type=admin&action=setperiod&
+email=user@attacker.com&period=WD&secret_id=1 HTTP/1.1
+Host: spamtitan.local</code></pre>
+
+<p><strong>Effect:</strong></p>
+<ul>
+<li>A new user <code>user@attacker.com</code> is silently created.</li>
+<li>Digest preference is set to "weekly".</li>
+<li>No authentication or token is required.</li>
+</ul>
+
+<h2>[~] Impact</h2>
+<ul>
+<li>Unauthenticated creation of internal user records</li>
+<li>Manipulation of quarantine report settings for arbitrary emails</li>
+<li>Potential for denial of service or persistence via spam report hijacking</li>
+<li>Expands the application attack surface for further exploitation</li>
+</ul>
+
+<h2>[~] Vendor Response</h2>
+<p>TitanHQ implemented fixes for this vulnerability as part of a coordinated disclosure effort.</p>
+<p>The issue has been resolved in the following versions:</p>
+<ul>
+<li>SpamTitan Gateway v.8.00.101</li>
+<li>SpamTitan Gateway v.8.01.14</li>
+</ul>
+<p><em>Note:</em> if a customer has set the token expiration period to 0 (disabling tokens), then it would still be possible to add users. The quarantine settings page now shows a warning if a customer has this set to 0, and going forward it is not possible to set the token expiration period lower than 1.</p>
+
+<h2>[~] Timeline</h2>
+<ul>
+<li>2024-05-12: Vulnerability discovered during a pentest</li>
+<li>2025-04-24: Advisory drafted</li>
+<li>2025-04-28: Initial advisory submitted to TitanHQ</li>
+<li>2025-05-06: Follow up #1 from Seralys</li>
+<li>2025-05-16: Follow up #2 from Seralys</li>
+<li>2025-05-19: TitanHQ acknowledged receipt and initiated coordination</li>
+<li>2025-06-13: TitanHQ publicly released a fix in v8.00.101 and v8.01.14</li>
+<li>2025-08-20: Public disclosure by Seralys</li>
+</ul>
+
+<div class="back-link">
+      <a href="../index.html">[*] Back to main</a>
+    </div>
+  </div>
+
+</body>
+</html>
