@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta property="og:title" content="MindsDB Vulnerability Report">
+  <meta property="og:description" content="Vulnerability write-up for MindsDB file/model upload and path traversal issues.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yourusername.github.io/blog/mindsdb-report">
+  <meta property="og:image" content="https://yourusername.github.io/blog/images/preview.png">
+
+  <title>dead1nfluence | MindsDB Vulnerability Report</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #d3d7cf;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #d3d7cf;
+      text-align: center;
+    }
+
+    a {
+      color: #d3d7cf;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .post {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+      text-align: center;
+    }
+
+    p {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+
+    pre {
+      background-color: #111;
+      padding: 1rem;
+      border: 1px solid #d3d7cf;
+      text-align: left;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-link {
+      margin-top: 3rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="post">
+    <h1>> MindsDB Vulnerability Research</h1>
+    <div class="meta">Posted: September 16, 2025 | Author: dead1nfluence</div>
+
+    <p>Several months ago I was on a little road trip and, while in the passenger seat, decided to keep myself entertained with a little bit of vulnerability research.</p>
+        <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/mindsdb_roadtrip.jpeg" style="max-width:100%; height:auto;">
+    <p>Turning to GitHub trending, as I did for the AgentZero write up, I stumbled across MindsDB. MindsDB is an, "AI Analytics Engine that can answer questions over large scale data." Their GitHub repository can be found here: <a href="https://github.com/mindsdb/mindsdb">https://github.com/mindsdb/mindsdb</a></p>
+
+    <p>They had a handful of previously reported vulnerabilities, the project is quite popular, and it was actively maintained: my three hallmarks for a good prospective target. It also had the added bonus of Docker containers, making it far easier to deploy.</p>
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/mindsdb_advisories.png" style="max-width:100%; height:auto;">
+
+    <p>Once the container was pulled and configured, the UI was fairly simple. We had a basic interface which we could use to run SQL commands and configure data sources.</p>
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/mindsDbPage.png" style="max-width:100%; height:auto;">
+    <p>Of keen interest, however, were the options to upload custom models and upload files. There has been a lot of research has been done on implanting reverse shells into models and using them to achieve remote code execution on a system. I figured this was the best thing to check out first.</p>
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/custom model upload.png" style="max-width:100%; height:auto;">
+    <p>Unfortunately though, it seemed like my uploads were failing. Each time I tried to upload a file, it was returning an error message stating "'str' object has no attribute 'name'"</p>
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/reqUploadRev.png" style="max-width:100%; height:auto;">
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/respUploadRev.png" style="max-width:100%; height:auto;">
+    <p>The file system told a different story though. I could see that the file was being uploaded successfully, but returning an error in the UI for whatever reason. I chalked it up to buggy, probably vibe-coded, Python.</p>
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/filesystemRevPy.png" style="max-width:100%; height:auto;">
+    <p>We can upload a Python file to a form which expects Python, so what? If we can't do anything else, and the program is seemingly failing, then it should be fine I suppose.How about we try changing the extension? If this bash script were executed it would open a Telnet listener with root privileges (since everything on the container is run as root).</p>
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/telnetRevReq.png" style="max-width:100%; height:auto;">
+    <p>And, just as it had with the Python file, the same error is returned. However, again, the file was successfully uploaded under /root/mdb_storage/tmp/ directory.</p>
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/filesystemRevSH.png" style="max-width:100%; height:auto;">
+    <p>Well, you might say, "So what? How could we get that to actually execute?" And that would be a good point, as it stands we can upload whatever we want to this directory but we have no method of getting it to run. What we would need next is simple: a path traversal.</p>
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/pathTraversalReq.png" style="max-width:100%; height:auto;">
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/filesystemPathTraversal.png" style="max-width:100%; height:auto;">
+    <p>Which, thankfully enough, we were able to get! By simply specifying ../../../ we could write to the root of the file system. Unfortunately with a vulnerability like this unless the system is configured to run a cronjob or other scheduled program, our best bet is to overwrite /root/.bashrc. We could try overwriting some of the files within the MindsDB application which may be executed when we visit a page or call a function. I did try this on several files however it seemed as though the app would need to be restarted to execute the malicious Python. For simplicity's sake, and to avoid breaking the application, I stuck with modifying the former.</p>
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/revshell.png" style="max-width:100%; height:auto;">
+
+    <p>On the next occasion the owner of the container connected to their instance, the reverse shell to our attacker machine would be executed and we could gain access to their container.</p>
+    <p>Returning to the File upload feature from earlier. I found a similar problem with path traversal and file upload as we saw on the model upload page. While this page "restricts" your uploaded file type to: csv, xlsx, xls, sheet, json, parquet, pdf, txt, however this is merely a client-side restriction. We can modify the extension in Burp Suite and upload whatever we want, wherever we want.</p>
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/fileuploadPage.png" style="max-width:100%; height:auto;">
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/revUploadReq.png" style="max-width:100%; height:auto;">
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/revPyFilesystem.png" style="max-width:100%; height:auto;">
+    <p>So how about disclosure? Well, MindsDB's GitHub states that all reports must be sent to: <a href="mailto:hello@mindsdb.com">hello@mindsdb.com</a></p>
+
+    <p>On May 23rd, we made initial contact with MindsDB, with several follow up emails sent to this address. As we hadn't received any response, on June 29th we forwarded this email chain to the CEO Jorge Torres who promptly responded and put us in contact with several of their technical team members. They found that while the path traversal was a vulnerability, the arbitrary file uploads were "intended features", this is despite the fact that both forms have client-side restrictions and a message stating the file type is restricted to a set list.</p>
+
+    <p>We believe that this may be, partly, because others had <a href="https://github.com/mindsdb/mindsdb/security/advisories/GHSA-j8w6-2r9h-cxhj">reported a similar issue</a> (and it was seemingly fixed) but had regressed.</p>
+
+    <p>We tend to disagree with the fact that it is an intended feature based on what we saw from the application. After two months of follow ups, the answer we received was that this was "on the roadmap". We paired our email reports with a report through GitHub's Security report mechanism however neither have been published or received CVEs. As such we have registered the four vulnerabilities with MITRE and are now releasing this report.</p>
+
+    <div class="back-link">
+      <a href="../index.html">[*] Back to main</a>
+    </div>
+  </div>
+
+</body>
+</html>
