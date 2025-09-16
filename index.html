@@ -4,57 +4,63 @@
   <meta charset="UTF-8">
   <title>dead1nfluence | Blog</title>
   <style>
-    body {
-      background-color: #000;
-      color: #d3d7cf;
-      font-family: monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 2rem;
-    }
+body {
+  background-color: #000;
+  color: #d3d7cf;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+}
 
-    h1, h2, .prompt-style {
-      color: #d3d7cf;
-      text-align: center;
-    }
+h1, h2, .prompt-style {
+  color: #d3d7cf;
+  text-align: center;
+}
 
-    a {
-      text-decoration: none;
-    }
+.bio {
+  text-align: center; /* keeps bio centered */
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+.bio p {
+  text-align: center;
+}
 
-    .bio, .articles, .vulnerabilities {
-      max-width: 800px;
-      width: 100%;
-    }
+a, p, .article span {
+  color: #d3d7cf;
+  text-align: left; /* ensures articles stay left-aligned */
+}
 
-    .articles, .vulnerabilities {
-      border-top: 1px solid #d3d7cf;
-      padding-top: 1rem;
-    }
+a {
+  text-decoration: none;
+}
 
-    .article {
-      margin-bottom: 2rem;
-    }
-    
-    .vulnerabilities ul {
-     max-width: 800px;
-      width: 100%;
-      text-align: left;
-      margin-bottom: 3rem;
+a:hover {
+  text-decoration: underline;
+}
 
-    }
-    
-    a, p, .article span {
-    color: #d3d7cf;
-    text-align: left;
-    }
+.bio, .articles, .vulnerabilities {
+  max-width: 800px;
+  width: 100%;
+}
 
+.articles, .vulnerabilities {
+  border-top: 1px solid #d3d7cf;
+  padding-top: 1rem;
+}
+
+.article {
+  margin-bottom: 2rem;
+}
+
+.vulnerabilities ul {
+  max-width: 800px;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 3rem;
+}
 
   </style>
 </head>
@@ -64,8 +70,9 @@
 
   <div class="bio">
     <h3 class="prompt-style">[~] whoami </h3>
-    <p>Penetration Tester & Security Researcher<br>
-       This blog is for research and whatever else comes to mind that I feel like sharing.</p>
+    <p><b>Penetration Tester & Security Researcher</b></p><br>
+    
+       <p>This blog is for research and whatever else comes to mind that I feel like sharing.</p>
        <p>You can contact me at: contact@julian-b[.]xyz for any inquiries.</p>
   </div>
 
