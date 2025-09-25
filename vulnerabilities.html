@@ -12,13 +12,69 @@
 </div>
 
 <style>
-/* Top Menu Buttons Styling */
+/* --- Global Page Styles (Terminal/Hacker Look) --- */
+body {
+  background-color: #050505; /* Dark terminal background */
+  color: #9efc9e; /* Light green terminal text */
+  font-family: monospace;
+  line-height: 1.5;
+  margin: 0;
+  padding: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #cfeecf; /* Slightly brighter for headings */
+  margin: 1rem 0 0.5rem;
+  font-weight: normal;
+}
+
+a {
+  color: #7de07d; /* Hacker green links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d3ffd3;
+  text-decoration: underline;
+}
+
+p, li, span {
+  color: #9efc9e; /* consistent terminal green */
+}
+
+.bio, .articles, .vulnerabilities {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  border-top: 1px solid #1f1f1f;
+  padding-top: 1rem;
+}
+
+.article {
+  margin-bottom: 2rem;
+  padding-left: 0.5rem;
+}
+
+.article span {
+  color: #bff8bf; /* slightly brighter for descriptions */
+}
+
+.vulnerabilities ul {
+  max-width: 900px;
+  padding-left: 1.2rem;
+}
+
+.vulnerabilities li {
+  margin-bottom: 0.5rem;
+  color: #9efc9e;
+}
+
 .top-menu-buttons {
   position: sticky;
   top: 0;
   width: 100%;
   background-color: #111;
-  border-bottom: 1px solid #d3d7cf;
+  border-bottom: 1px solid #1f1f1f;
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -28,8 +84,8 @@
 
 .menu-button {
   background-color: #000;
-  color: #d3d7cf;
-  border: 1px solid #d3d7cf;
+  color: #9efc9e;
+  border: 1px solid #1f1f1f;
   padding: 0.5rem 1.5rem;
   font-family: monospace;
   font-weight: bold;
@@ -39,76 +95,41 @@
 }
 
 .menu-button:hover {
-  background-color: #d3d7cf;
+  background-color: #9efc9e;
   color: #000;
+}
+
+/* Optional: fake terminal effect for all text blocks */
+.article span, .bio p, .vulnerabilities li {
+  text-shadow: 0 0 2px #0b6623, 0 0 1px #0b6623;
+}
+
+/* Scrollbar customization for terminal aesthetic */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #111;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #7de07d;
 }
 </style>
 
-  <style>
-body {
-  background-color: #000;
-  color: #d3d7cf;
-  font-family: monospace;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 2rem;
-}
-
-h1, h2, .prompt-style {
-  color: #d3d7cf;
-  text-align: center;
-}
-
-.bio {
-  text-align: center; /* keeps bio centered */
-}
-
-.bio p {
-  text-align: center;
-}
-
-a, p, .article span {
-  color: #d3d7cf;
-  text-align: left; /* ensures articles stay left-aligned */
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.bio, .articles, .vulnerabilities {
-  max-width: 800px;
-  width: 100%;
-}
-
-.articles, .vulnerabilities {
-  border-top: 1px solid #d3d7cf;
-  padding-top: 1rem;
-}
-
-.article {
-  margin-bottom: 2rem;
-}
-
-.vulnerabilities ul {
-  max-width: 800px;
-  width: 100%;
-  text-align: left;
-  margin-bottom: 3rem;
-}
-
-  </style>
+</head>
+<body>
 </head>
 <body>
 
   <div class="vulnerabilities">
-    <h2>[*] Recently Disclosed Vulnerabilities</h2>
+    <h2>[*] Disclosed Vulnerabilities</h2>
     <ul>
       <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-27474">CVE-2024-27474 (Leantime) CSRF</a></li>
       <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-27476">CVE-2024-27476 (Leantime) Authenticated XSS</a></li>
