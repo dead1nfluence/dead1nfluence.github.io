@@ -3,74 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <title>dead1nfluence | Blog</title>
-  <style>
+  <!-- Top Menu Bar with Page Links -->
+<div class="top-menu-buttons">
+  <a href="index.html" class="menu-button">Main Page</a>
+  <a href="blogs.html" class="menu-button">Blog Posts</a>
+  <a href="vulnerabilities.html" class="menu-button">Vulnerabilities</a>
+  <a href="publications.html" class="menu-button">Publications</a>
+</div>
+
+<style>
+/* --- Global Page Styles (Terminal/Hacker Look) --- */
 body {
-  background-color: #000;
-  color: #d3d7cf;
+  background-color: #050505; /* Dark terminal background */
+  color: #9efc9e; /* Light green terminal text */
   font-family: monospace;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  line-height: 1.5;
+  margin: 0;
   padding: 2rem;
 }
 
-h1, h2, .prompt-style {
-  color: #d3d7cf;
-  text-align: center;
-}
-
-.bio {
-  text-align: center; /* keeps bio centered */
-}
-
-.bio p {
-  text-align: center;
-}
-
-a, p, .article span {
-  color: #d3d7cf;
-  text-align: left; /* ensures articles stay left-aligned */
+h1, h2, h3, h4, h5, h6 {
+  color: #cfeecf; /* Slightly brighter for headings */
+  margin: 1rem 0 0.5rem;
+  font-weight: normal;
 }
 
 a {
+  color: #7de07d; /* Hacker green links */
   text-decoration: none;
 }
 
 a:hover {
+  color: #d3ffd3;
   text-decoration: underline;
 }
 
-.bio, .articles, .vulnerabilities {
-  max-width: 800px;
-  width: 100%;
+p, li, span {
+  color: #9efc9e; /* consistent terminal green */
 }
 
-.articles, .vulnerabilities {
-  border-top: 1px solid #d3d7cf;
+.bio, .articles, .vulnerabilities {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  border-top: 1px solid #1f1f1f;
   padding-top: 1rem;
 }
 
 .article {
   margin-bottom: 2rem;
+  padding-left: 0.5rem;
+}
+
+.article span {
+  color: #bff8bf; /* slightly brighter for descriptions */
 }
 
 .vulnerabilities ul {
-  max-width: 800px;
-  width: 100%;
-  text-align: left;
-  margin-bottom: 3rem;
+  max-width: 900px;
+  padding-left: 1.2rem;
 }
 
-  </style>
+.vulnerabilities li {
+  margin-bottom: 0.5rem;
+  color: #9efc9e;
+}
+
+.top-menu-buttons {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #111;
+  border-bottom: 1px solid #1f1f1f;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.5rem 0;
+  z-index: 1000;
+}
+
+.menu-button {
+  background-color: #000;
+  color: #9efc9e;
+  border: 1px solid #1f1f1f;
+  padding: 0.5rem 1.5rem;
+  font-family: monospace;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-button:hover {
+  background-color: #9efc9e;
+  color: #000;
+}
+
+/* Optional: fake terminal effect for all text blocks */
+.article span, .bio p, .vulnerabilities li {
+  text-shadow: 0 0 2px #0b6623, 0 0 1px #0b6623;
+}
+
+/* Scrollbar customization for terminal aesthetic */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #111;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #7de07d;
+}
+</style>
+
 </head>
 <body>
 
+    <div class="bio">
   <h1>> dead1nfluence</h1>
 
-  <div class="bio">
+  
     <h3 class="prompt-style">[~] whoami </h3>
-    <p><b>Penetration Tester & Security Researcher</b></p><br>
+    <p><b>Penetration Tester & Security Researcher</b></p>
     
        <p>This blog is for research and whatever else comes to mind that I feel like sharing.</p>
        <p>You can contact me at: contact@julian-b[.]xyz for any inquiries.</p>
@@ -99,12 +160,11 @@ a:hover {
       <span>// This post examines Furbo’s Bluetooth Low Energy (BLE) communication, finding vulnerabilities that expose Wi-Fi credentials, enable device resets, and reveal hidden GATT characteristics. The team demonstrates how attackers could hijack video streams or re-register devices.</span>
     </div>
         <div class="article">
-      <a href="">Hacking Furbo—A Hardware Research Project—Part 6: The Finale</a><br>
+      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-6-the-finale">Hacking Furbo—A Hardware Research Project—Part 6: The Finale</a><br>
       <span>// Final chapter: insecure Wi-Fi credentials, risky S3 log uploads, long-lived device tokens, and global MQTT activity exposure, plus our June 23, 2025 disclosure to Tomofun.</span>
     </div>
-  </div>
   <div class="articles">
-    <h2>[*] Publications</h2>
+    <h2>[*] Recent Publications</h2>
     <div class="article">
       <a href="https://www.404media.co/grok-exposes-underlying-prompts-for-its-ai-personas-even-putting-things-in-your-ass/">Grok Exposes Underlying Prompts for Its AI Personas: ‘EVEN PUTTING THINGS IN YOUR ASS’</a><br>
       <span>// The website for Elon Musk's Grok is exposing prompts for its anime girl, therapist, and conspiracy theory AI personas.</span>
@@ -115,20 +175,8 @@ a:hover {
     </div>
 
   <div class="vulnerabilities">
-    <h2>[*] Vulnerabilities Disclosed</h2>
+    <h2>[*] Recently Disclosed Vulnerabilities</h2>
     <ul>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-27474">CVE-2024-27474 (Leantime) CSRF</a></li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-27476">CVE-2024-27476 (Leantime) Authenticated XSS</a></li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-41959">CVE-2024-41959 (Mailcow) Unauthenticated XSS</a></li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-41960">CVE-2024-41960 (Mailcow) Authenticated XSS</a></li>
-      <li><a href="posts/spamtitan_vuln.html">CVE-2024-45438 (SpamTitan) Unauthenticated User Creation</a></li>
-      <li><a href="posts/mindsdb_report.html">CVE-2025-XXXX (MindsDB) File Upload Path Traversal to RCE</a></li>
-      <li><a href="posts/mindsdb_report.html">CVE-2025-XXXX (MindsDB) File Upload Path Traversal to RCE</a></li>
-      <li><a href="posts/mindsdb_report.html">CVE-2025-XXXX (MindsDB) Arbitrary File Upload</a></li>
-      <li><a href="posts/mindsdb_report.html">CVE-2025-XXXX (MindsDB) Arbitrary File Upload</a></li>
-      <li><a href="posts/agentZeroSecurityWriteup.html">CVE-2025-55881 (Agent Zero) CSRF File Upload to RCE</a></li>
-      <li><a href="posts/agentZeroSecurityWriteup.html">CVE-2025-55882 (Agent Zero) CSRF File Upload to RCE</a></li>
-      <li><a href="https://www.linkedin.com/pulse/xss-safeline-waf-julian-b-f8ysc/">CVE-2025-55883 (SafeLine WAF) Authenticated XSS</a></li>
       <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Improper Certificate Validation</a></li>
       <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Insertion of Sensitive Information into Log File</a></li>
       <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Uncontrolled Resource Consumption</a></li>
@@ -158,6 +206,145 @@ a:hover {
   </div>
 
   
-   </div>
+   </div><!-- Hacker-style Command Prompt Pop-up (index only) -->
+<div id="dead1nfluence-modal" aria-hidden="true" role="dialog" aria-label="dead1nfluence prompt" style="display:none;">
+  <div class="dead1nfluence-overlay"></div>
+  <div class="dead1nfluence-terminal" role="document">
+    <div class="term-header">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="title">dead1nfluence — terminal</span>
+      <button class="term-close" aria-label="Close prompt">&times;</button>
+    </div>
+    <div class="term-body" id="term-body" tabindex="0" aria-live="polite">
+      <div class="term-line">Welcome, researcher.</div>
+      <div class="term-line">Are you ready to enter the world of <b>dead1nfluence</b>?</div>
+      <div class="term-input-line">
+        <span class="prompt-prefix">user@dead1nfluence:~$</span>
+        <input id="term-input" class="term-input" type="text" autocomplete="off" spellcheck="false" aria-label="Type yes or no"/>
+        <span class="blinker" aria-hidden="true"></span>
+      </div>
+      <div id="term-output" class="term-output" aria-atomic="true"></div>
+    </div>
+    <div class="term-footer">
+      <small>// Type 'yes' or 'no' and press Enter</small>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Popup styles */
+#dead1nfluence-modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2000; }
+.dead1nfluence-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(2px); cursor: pointer; }
+.dead1nfluence-terminal {
+  position: relative;
+  width: min(820px, 92%);
+  background: linear-gradient(180deg,#050505 0%, #0a0a0a 100%);
+  border: 1px solid #1f1f1f;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 2px 0 #0b6623 inset;
+  font-family: monospace;
+  color: #9efc9e;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 2;
+}
+.term-header { display:flex; align-items:center; gap:0.6rem; padding:0.6rem 0.9rem; background:#111; }
+.term-header .dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+.term-header .red{ background:#ff5f56; }
+.term-header .yellow{ background:#ffbd2e; }
+.term-header .green{ background:#27c93f; }
+.term-header .title { margin-left:0.3rem; font-size:0.9rem; color:#cfeecf; }
+.term-close { margin-left:auto; background:transparent; border:none; color:#9efc9e; font-size:1.2rem; cursor:pointer; }
+.term-body { padding:1rem; min-height:160px; max-height:60vh; overflow:auto; }
+.term-line { padding:0.12rem 0; color:#bff8bf; }
+.prompt-prefix { color:#7de07d; font-weight:600; }
+.term-input { background: transparent; border: none; outline: none; color: #9efc9e; font-family: monospace; font-size: 1rem; width: 100%; caret-color: #9efc9e; }
+.blinker { display:inline-block; width:10px; height:18px; margin-left:6px; background: rgba(158,252,158,0.18); animation: blink 1s steps(2, start) infinite; border-radius:2px; }
+@keyframes blink { 50% { opacity: 0.02; } }
+.term-output { margin-top:0.6rem; color:#d3ffd3; font-size:0.95rem; }
+.term-footer { padding:0.6rem 1rem; border-top:1px solid rgba(255,255,255,0.1); font-size:0.8rem; color:#bff0b5; }
+
+/* small screens */
+@media (max-width:520px){
+  .term-header .title { display:none; }
+  .dead1nfluence-terminal { width: 96%; }
+}
+</style>
+
+<script>
+(function(){
+  const modal = document.getElementById('dead1nfluence-modal');
+  const input = document.getElementById('term-input');
+  const output = document.getElementById('term-output');
+  const closeBtn = document.querySelector('.term-close');
+  const overlay = document.querySelector('.dead1nfluence-overlay');
+
+  // Replace with your configured redirect URL
+  const NO_REDIRECT_URL = 'https://youtu.be/dQw4w9WgXcQ?si=MCuUCUnvmfriyuz0';
+
+  function openPrompt(){
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden','false');
+    setTimeout(()=>{ input.focus(); }, 120);
+  }
+
+  function closePrompt(markSeen = true){
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden','true');
+    if(markSeen){
+      localStorage.setItem('dead1nfluencePromptSeen','true');
+    }
+  }
+
+  function appendOut(text, error=false){
+    const div = document.createElement('div');
+    div.className = 'term-line';
+    div.style.color = error ? '#ffb3b3' : '#d3ffd3';
+    div.textContent = text;
+    output.appendChild(div);
+    const body = document.getElementById('term-body');
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function handleCommand(val){
+    const cmd = (val||'').trim().toLowerCase();
+    if(cmd==='yes' || cmd==='y'){
+      appendOut('> yes');
+      appendOut('Welcome to dead1nfluence. Proceed with care.');
+      closePrompt(true);
+    } else if(cmd==='no' || cmd==='n'){
+      appendOut('> no');
+      appendOut('Redirecting now...');
+      localStorage.setItem('dead1nfluencePromptSeen','true');
+      window.location.replace(NO_REDIRECT_URL);
+    } else {
+      appendOut('> ' + val, true);
+      appendOut("Invalid input. Type 'yes' or 'no'.", true);
+    }
+    input.value = '';
+  }
+
+  input.addEventListener('keydown', e=>{
+    if(e.key==='Enter'){
+      e.preventDefault();
+      handleCommand(input.value);
+    } else if(e.key === 'c' && (e.ctrlKey || e.metaKey)){
+      appendOut('^C', true);
+      appendOut('Prompt canceled.', true);
+      closePrompt(true);
+    }
+  });
+
+  closeBtn.addEventListener('click', ()=>closePrompt(true));
+  overlay.addEventListener('click', ()=>closePrompt(true));
+
+  if(!localStorage.getItem('dead1nfluencePromptSeen')){
+    openPrompt();
+  }
+})();
+</script>
+
+
 </body>
 </html>
