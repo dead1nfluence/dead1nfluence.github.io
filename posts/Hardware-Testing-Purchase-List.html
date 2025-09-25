@@ -3,59 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <title>dead1nfluence | Hardware Testing Purchase List</title>
-  <style>
+ 
+<div class="top-menu-buttons">
+  <a href="index.html" class="menu-button">Main Page</a>
+  <a href="blogs.html" class="menu-button">Blog Posts</a>
+  <a href="vulnerabilities.html" class="menu-button">Vulnerabilities</a>
+  <a href="publications.html" class="menu-button">Publications</a>
+</div>
+
+<style>
+    /* --- Global Hacker Terminal Styles --- */
     body {
-      background-color: #000;
-      color: #d3d7cf; /* Ubuntu terminal-like off-white */
+      background-color: #050505;
+      color: #9efc9e;
       font-family: monospace;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 2rem;
+      line-height: 1.5;
     }
 
-    h1 {
+    h1, h2 {
+      color: #cfeecf;
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      margin: 1rem 0 0.5rem;
+      font-weight: normal;
     }
 
-    h2, h3 {
+    h2 { 
+      font-size: 1.2rem;
       text-align: left;
-      color: #d3d7cf;
       margin-top: 2rem;
     }
 
-    p, li, ul {
-      text-align: left;
-      max-width: 800px;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
     a {
-      color: #d3d7cf;
+      color: #7de07d;
       text-decoration: none;
     }
 
     a:hover {
+      color: #d3ffd3;
       text-decoration: underline;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-      margin: 1rem auto;
+    .post {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      border: 1px solid #1f1f1f;
+      padding: 1.5rem 2rem;
+      background: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7), inset 0 2px 0 #0b6623;
+      border-radius: 8px;
     }
 
-    .post {
-      max-width: 800px;
-      width: 100%;
+    .meta {
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+      text-align: center;
+    }
+
+    p {
+      text-align: left;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 2px #0b6623, 0 0 1px #0b6623;
+    }
+
+    pre {
+      background-color: #111;
+      padding: 1rem;
+      border: 1px solid #1f1f1f;
+      text-align: left;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      color: #9efc9e;
+      border-radius: 4px;
+      box-shadow: inset 0 2px 0 #0b6623;
+    }
+
+    code {
+      font-family: monospace;
+      color: #9efc9e;
     }
 
     .back-link {
-      margin-top: 2rem;
+      margin-top: 3rem;
       text-align: center;
+    }
+
+    .back-link a {
+      font-weight: bold;
+      text-shadow: 0 0 2px #0b6623;
+    }
+
+    /* Scrollbar styling to match hacker theme */
+    body::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    body::-webkit-scrollbar-track {
+      background: #111;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background: #1f1f1f;
+      border-radius: 5px;
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+      background: #7de07d;
     }
   </style>
 </head>
