@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>dead1nfluence | Blog</title>
+  <!-- Top Menu Bar with Page Links -->
+<div class="top-menu-buttons">
+  <a href="blogs.html" class="menu-button">Blog Posts</a>
+  <a href="vulnerabilities.html" class="menu-button">Vulnerabilities</a>
+  <a href="publications.html" class="menu-button">Publications</a>
+</div>
+
+<style>
+/* Top Menu Buttons Styling */
+.top-menu-buttons {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #111;
+  border-bottom: 1px solid #d3d7cf;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.5rem 0;
+  z-index: 1000;
+}
+
+.menu-button {
+  background-color: #000;
+  color: #d3d7cf;
+  border: 1px solid #d3d7cf;
+  padding: 0.5rem 1.5rem;
+  font-family: monospace;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-button:hover {
+  background-color: #d3d7cf;
+  color: #000;
+}
+</style>
+
+  <style>
+body {
+  background-color: #000;
+  color: #d3d7cf;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+}
+
+h1, h2, .prompt-style {
+  color: #d3d7cf;
+  text-align: center;
+}
+
+.bio {
+  text-align: center; /* keeps bio centered */
+}
+
+.bio p {
+  text-align: center;
+}
+
+a, p, .article span {
+  color: #d3d7cf;
+  text-align: left; /* ensures articles stay left-aligned */
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.bio, .articles, .vulnerabilities {
+  max-width: 800px;
+  width: 100%;
+}
+
+.articles, .vulnerabilities {
+  border-top: 1px solid #d3d7cf;
+  padding-top: 1rem;
+}
+
+.article {
+  margin-bottom: 2rem;
+}
+
+.vulnerabilities ul {
+  max-width: 800px;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+  </style>
+</head>
+<body>
+   <div class="articles">
+    <h2>[*] All Posts</h2>
+        <div class="article">
+      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-1-acquiring-the-hardware">Hacking Furbo—A Hardware Research Project—Part 1: Acquiring the Hardware</a><br>
+      <span>// In mid-March our research team began looking for a target to assess as part of a long-term project. After some time searching, we set our sights on Furbo. Tomofun, the creators of Furbo, offers two devices which you can set up in your home to monitor your pet's activities throughout the day and, with the higher-end Furbo 360, toss treats their way, send voice messages, and monitor their activities more thoroughly.</span>
+    </div>
+    <div class="article">
+      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-2-mobile-and-p2p-exploits">Hacking Furbo—A Hardware Research Project–Part 2: Mobile and P2P Exploits</a><br>
+      <span>// In the second part of our Hacking Furbo blog series we will focus on the mobile application and P2P communications from it. We will detail our process of identifying the mobile-side of the P2P communications and hooking them with Frida for a deeper understanding of how they work.</span>
+    </div>
+        <div class="article">
+      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-3-chip-off-and-persistence">Hacking Furbo—A Hardware Research Project—Part 3: Chip Off and Persistence </a><br>
+      <span>// In this third part of our Hacking Furbo blog series we will focus on the Furbo hardware; specifically our attempts at performing a chip off procedure on the device in order to dump and re-apply our own customized firmware. We will detail how we used the XGecu T48 programmer for the firmware extraction, our struggles to get the correct adapter, and our sad attempt at using a Probe Reader to avoid performing a chip off procedure.</span>
+    </div>
+        <div class="article">
+      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-4-debugging-deviceids-and-dev-tools">Hacking Furbo—A Hardware Research Project—Part 4: Debugging, DeviceIDs, and Dev Tools</a><br>
+      <span>// In Part 4 of the Hacking Furbo blog series we will detail our dynamic analysis of the Furbo devices. We will show how the device was logging information, how that helped us better understand the binaries and their functions, as well as some developer features that we discovered after reviewing the file system. Using the information collected from our debugging we were able to exploit two more vulnerabilities: a Denial of Service and an Application Logic Bypass which allowed us to have unlimited trial licenses!</span>
+    </div>
+        <div class="article">
+      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-5-exploiting-ble">Hacking Furbo—A Hardware Research Project—Part 5: Exploiting BLE</a><br>
+      <span>// This post examines Furbo’s Bluetooth Low Energy (BLE) communication, finding vulnerabilities that expose Wi-Fi credentials, enable device resets, and reveal hidden GATT characteristics. The team demonstrates how attackers could hijack video streams or re-register devices.</span>
+    </div>
+        <div class="article">
+      <a href="">Hacking Furbo—A Hardware Research Project—Part 6: The Finale</a><br>
+      <span>// Final chapter: insecure Wi-Fi credentials, risky S3 log uploads, long-lived device tokens, and global MQTT activity exposure, plus our June 23, 2025 disclosure to Tomofun.</span>
+    </div>
+        <div class="article">
+      <a href="posts/mindsdb_report.html">Don't Mind(sDB) me: RCE on MindsDB</a><br>
+      <span>// Vulnerability disclosure. By combining a path traversal with an arbitrary file upload vulnerability, RCE was achieved on the MindsDB AI analytics engine.</span>
+    </div>
+    <div class="article">
+      <a href="posts/spamtitan_vuln.html">Unauthenticated User Creation in SpamTitan</a><br>
+      <span>// Vulnerability disclosure. A missing authorization vulnerability discovered during research performed with Philippe Caturegli of Seralys.</span>
+    </div>
+    <div class="article">
+      <a href="posts/phishingWithGrok.html">Stealing Your Chats In 2 Clicks</a><br>
+      <span>// Using clickable links and hidden ASCII characters, I detail how a built-in feature of Grok can be used to phish unsuspecting users and exfiltrate memory.</span>
+    </div>
+    <div class="article">
+      <a href="posts/llmChatReview.html">I scraped every public LLM chat so you didn't have to</a><br>
+      <span>// I scraped and grepped every public LLM shared link, found secrets, and documented it all.</span>
+    </div>
+    <div class="article">
+      <a href="posts/agentZeroSecurityWriteup.html">Agent Zero Security Research</a><br>
+      <span>// A short blog on security research performed on the Agent Zero open-source project.</span>
+    </div>
+    <div class="article">
+      <a href="posts/IoT-Course-Review.html">Andrew Bellini's IoT and Hardware Hacking Course</a><br>
+      <span>// A review of Andrew Bellini's "Beginner's Guide to IoT and Hardware Hacking" course on TCM.</span>
+    </div>
+    <div class="article">
+      <a href="posts/Hardware-Testing-Purchase-List.html">Basic Hardware Testing Purchase Guide</a><br>
+      <span>// A basic hardware and IoT purchase guide for budget setups. Sources have been compiled for Canadian researchers.</span>
+    </div>
+
+    <!-- Add more articles here -->
+  </div>
