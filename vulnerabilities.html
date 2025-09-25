@@ -1,0 +1,151 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>dead1nfluence | Blog</title>
+  <!-- Top Menu Bar with Page Links -->
+<div class="top-menu-buttons">
+  <a href="index.html" class="menu-button">Main Page</a>
+  <a href="blogs.html" class="menu-button">Blog Posts</a>
+  <a href="vulnerabilities.html" class="menu-button">Vulnerabilities</a>
+  <a href="publications.html" class="menu-button">Publications</a>
+</div>
+
+<style>
+/* Top Menu Buttons Styling */
+.top-menu-buttons {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #111;
+  border-bottom: 1px solid #d3d7cf;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.5rem 0;
+  z-index: 1000;
+}
+
+.menu-button {
+  background-color: #000;
+  color: #d3d7cf;
+  border: 1px solid #d3d7cf;
+  padding: 0.5rem 1.5rem;
+  font-family: monospace;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-button:hover {
+  background-color: #d3d7cf;
+  color: #000;
+}
+</style>
+
+  <style>
+body {
+  background-color: #000;
+  color: #d3d7cf;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+}
+
+h1, h2, .prompt-style {
+  color: #d3d7cf;
+  text-align: center;
+}
+
+.bio {
+  text-align: center; /* keeps bio centered */
+}
+
+.bio p {
+  text-align: center;
+}
+
+a, p, .article span {
+  color: #d3d7cf;
+  text-align: left; /* ensures articles stay left-aligned */
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.bio, .articles, .vulnerabilities {
+  max-width: 800px;
+  width: 100%;
+}
+
+.articles, .vulnerabilities {
+  border-top: 1px solid #d3d7cf;
+  padding-top: 1rem;
+}
+
+.article {
+  margin-bottom: 2rem;
+}
+
+.vulnerabilities ul {
+  max-width: 800px;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="vulnerabilities">
+    <h2>[*] Recently Disclosed Vulnerabilities</h2>
+    <ul>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-27474">CVE-2024-27474 (Leantime) CSRF</a></li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-27476">CVE-2024-27476 (Leantime) Authenticated XSS</a></li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-41959">CVE-2024-41959 (Mailcow) Unauthenticated XSS</a></li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-41960">CVE-2024-41960 (Mailcow) Authenticated XSS</a></li>
+      <li><a href="posts/spamtitan_vuln.html">CVE-2024-45438 (SpamTitan) Unauthenticated User Creation</a></li>
+      <li><a href="posts/mindsdb_report.html">CVE-2025-XXXX (MindsDB) File Upload Path Traversal to RCE</a></li>
+      <li><a href="posts/mindsdb_report.html">CVE-2025-XXXX (MindsDB) File Upload Path Traversal to RCE</a></li>
+      <li><a href="posts/mindsdb_report.html">CVE-2025-XXXX (MindsDB) Arbitrary File Upload</a></li>
+      <li><a href="posts/mindsdb_report.html">CVE-2025-XXXX (MindsDB) Arbitrary File Upload</a></li>
+      <li><a href="posts/agentZeroSecurityWriteup.html">CVE-2025-55881 (Agent Zero) CSRF File Upload to RCE</a></li>
+      <li><a href="posts/agentZeroSecurityWriteup.html">CVE-2025-55882 (Agent Zero) CSRF File Upload to RCE</a></li>
+      <li><a href="https://www.linkedin.com/pulse/xss-safeline-waf-julian-b-f8ysc/">CVE-2025-55883 (SafeLine WAF) Authenticated XSS</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Improper Certificate Validation</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Insertion of Sensitive Information into Log File</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Uncontrolled Resource Consumption</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Server-Side Request Forgery</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Race Condition</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Denial of Service</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Insecure Storage of Sensitive Information</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Insecure Storage of Sensitive Information</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Insecure Storage of Sensitive Information</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Insecure Storage of Sensitive Information</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Insecure Storage of Sensitive Information</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo Mobile Application) Insecure Storage of Sensitive Information</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Plain text Transmission of Sensitive Information</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Application Logic Bypass</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Application Logic Bypass Leading to Denial of Service</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Hardcoded Credentials</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Hardcoded Password</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Information Disclosure</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Information Disclosure</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Server-Side Request Forgery</a></li>
+      <li><a href="">CVE-2025-XXXX (Furbo 360, Furbo Mini) Insecure Encryption Algorithm</a></li>
+
+      <li>Many more to come...</li>
+
+      <li>Many more to come...</li>
+    </ul>
+  </div>
