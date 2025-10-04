@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>dead1nfluence | Blog</title>
+  <!-- Top Menu Bar with Page Links -->
+<div class="top-menu-buttons">
+  <a href="index.html" class="menu-button">Main Page</a>
+  <a href="blogs.html" class="menu-button">Blog Posts</a>
+  <a href="vulnerabilities.html" class="menu-button">Vulnerabilities</a>
+  <a href="publications.html" class="menu-button">Publications</a>
+</div>
+
+<style>
+/* --- Global Page Styles (Terminal/Hacker Look) --- */
+body {
+  background-color: #050505; /* Dark terminal background */
+  color: #9efc9e; /* Light green terminal text */
+  font-family: monospace;
+  line-height: 1.5;
+  margin: 0;
+  padding: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #cfeecf; /* Slightly brighter for headings */
+  margin: 1rem 0 0.5rem;
+  font-weight: normal;
+}
+
+a {
+  color: #7de07d; /* Hacker green links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d3ffd3;
+  text-decoration: underline;
+}
+
+p, li, span {
+  color: #9efc9e; /* consistent terminal green */
+}
+
+.bio, .articles, .vulnerabilities {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  border-top: 1px solid #1f1f1f;
+  padding-top: 1rem;
+}
+
+.article {
+  margin-bottom: 2rem;
+  padding-left: 0.5rem;
+}
+
+.article span {
+  color: #bff8bf; /* slightly brighter for descriptions */
+}
+
+.vulnerabilities ul {
+  max-width: 900px;
+  padding-left: 1.2rem;
+}
+
+.vulnerabilities li {
+  margin-bottom: 0.5rem;
+  color: #9efc9e;
+}
+
+.top-menu-buttons {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #111;
+  border-bottom: 1px solid #1f1f1f;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.5rem 0;
+  z-index: 1000;
+}
+
+.menu-button {
+  background-color: #000;
+  color: #9efc9e;
+  border: 1px solid #1f1f1f;
+  padding: 0.5rem 1.5rem;
+  font-family: monospace;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-button:hover {
+  background-color: #9efc9e;
+  color: #000;
+}
+
+/* Optional: fake terminal effect for all text blocks */
+.article span, .bio p, .vulnerabilities li {
+  text-shadow: 0 0 2px #0b6623, 0 0 1px #0b6623;
+}
+
+/* Scrollbar customization for terminal aesthetic */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #111;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #7de07d;
+}
+</style>
+
+</head>
+<body>
+</head>
+<body>
+   <div class="articles">
+    <h2>[*] Hacking Furbo: A Pet Project</h2>
+        <div class="article">
+      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-1-acquiring-the-hardware">Hacking Furbo—A Hardware Research Project—Part 1: Acquiring the Hardware</a><br>
+      <span>// In mid-March our research team began looking for a target to assess as part of a long-term project. After some time searching, we set our sights on Furbo. Tomofun, the creators of Furbo, offers two devices which you can set up in your home to monitor your pet's activities throughout the day and, with the higher-end Furbo 360, toss treats their way, send voice messages, and monitor their activities more thoroughly.</span>
+    </div>
+    <div class="article">
+      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-2-mobile-and-p2p-exploits">Hacking Furbo—A Hardware Research Project–Part 2: Mobile and P2P Exploits</a><br>
+      <span>// In the second part of our Hacking Furbo blog series we will focus on the mobile application and P2P communications from it. We will detail our process of identifying the mobile-side of the P2P communications and hooking them with Frida for a deeper understanding of how they work.</span>
+    </div>
+        <div class="article">
+      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-3-chip-off-and-persistence">Hacking Furbo—A Hardware Research Project—Part 3: Chip Off and Persistence </a><br>
+      <span>// In this third part of our Hacking Furbo blog series we will focus on the Furbo hardware; specifically our attempts at performing a chip off procedure on the device in order to dump and re-apply our own customized firmware. We will detail how we used the XGecu T48 programmer for the firmware extraction, our struggles to get the correct adapter, and our sad attempt at using a Probe Reader to avoid performing a chip off procedure.</span>
+    </div>
+        <div class="article">
+      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-4-debugging-deviceids-and-dev-tools">Hacking Furbo—A Hardware Research Project—Part 4: Debugging, DeviceIDs, and Dev Tools</a><br>
+      <span>// In Part 4 of the Hacking Furbo blog series we will detail our dynamic analysis of the Furbo devices. We will show how the device was logging information, how that helped us better understand the binaries and their functions, as well as some developer features that we discovered after reviewing the file system. Using the information collected from our debugging we were able to exploit two more vulnerabilities: a Denial of Service and an Application Logic Bypass which allowed us to have unlimited trial licenses!</span>
+    </div>
+        <div class="article">
+      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-5-exploiting-ble">Hacking Furbo—A Hardware Research Project—Part 5: Exploiting BLE</a><br>
+      <span>// This post examines Furbo’s Bluetooth Low Energy (BLE) communication, finding vulnerabilities that expose Wi-Fi credentials, enable device resets, and reveal hidden GATT characteristics. The team demonstrates how attackers could hijack video streams or re-register devices.</span>
+    </div>
+        <div class="article">
+      <a href="">Hacking Furbo—A Hardware Research Project—Part 6: The Finale</a><br>
+      <span>// Final chapter: insecure Wi-Fi credentials, risky S3 log uploads, long-lived device tokens, and global MQTT activity exposure, plus our June 23, 2025 disclosure to Tomofun.</span>
+    </div>
+  
