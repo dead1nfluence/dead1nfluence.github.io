@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://julian-b.xyz/</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/index.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/blogs.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/vulnerabilities.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/publications.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/posts/hacking-meatmeet.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/posts/mindsdb_report.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/posts/spamtitan_vuln.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/posts/phishingWithGrok.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/posts/llmChatReview.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/posts/agentZeroSecurityWriteup.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/posts/IoT-Course-Review.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/posts/Hardware-Testing-Purchase-List.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://julian-b.xyz/posts/hacking-furbo.html</loc>
+  <lastmod>2025-12-06T13:35:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
