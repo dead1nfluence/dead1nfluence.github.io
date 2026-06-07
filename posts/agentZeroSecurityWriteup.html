@@ -2,7 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>dead1nfluence | Agent Zero: Security Writeup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Security research on the Agent Zero open-source project: two CSRF file upload vulnerabilities leading to remote code execution. CVE-2025-55881 and CVE-2025-55882.">
+  <link rel="canonical" href="https://julian-b.xyz/posts/agentZeroSecurityWriteup.html">
+  <meta name="author" content="Julian B.">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Agent Zero Security Research — CSRF File Upload to RCE">
+  <meta property="og:description" content="Two CSRF file upload vulnerabilities leading to RCE in the Agent Zero open-source project.">
+  <meta property="og:url" content="https://julian-b.xyz/posts/agentZeroSecurityWriteup.html">
+  <meta property="og:site_name" content="dead1nfluence">
+  <meta property="og:image" content="https://julian-b.xyz/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://julian-b.xyz/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Agent Zero Security Research",
+    "description": "Two CSRF file upload vulnerabilities leading to RCE in the Agent Zero open-source project.",
+    "datePublished": "2025-06-27",
+    "author": { "@type": "Person", "name": "Julian B.", "alternateName": "dead1nfluence", "url": "https://julian-b.xyz/" },
+    "mainEntityOfPage": "https://julian-b.xyz/posts/agentZeroSecurityWriteup.html",
+    "publisher": { "@type": "Organization", "name": "dead1nfluence" }
+  }
+  </script>
+  <title>Agent Zero Security Research — CSRF File Upload to RCE | dead1nfluence</title>
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
 
 <div class="top-menu-buttons">
   <a href="https://julian-b.xyz/index.html" class="menu-button">Main Page</a>
@@ -11,143 +46,7 @@
   <a href="https://julian-b.xyz/publications.html" class="menu-button">Publications</a>
 </div>
 
-<style>
-    /* --- Global Hacker Terminal Styles --- */
-    body {
-      background-color: #050505;
-      color: #9efc9e;
-      font-family: monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-      line-height: 1.5;
-    }
-
-    .top-menu-buttons {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background-color: #111;
-      border-bottom: 1px solid #1f1f1f;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0.5rem 0;
-      z-index: 1000;
-    }
-        .menu-button {
-      background-color: #000;
-      color: #9efc9e;
-      border: 1px solid #1f1f1f;
-      padding: 0.5rem 1.5rem;
-      font-family: monospace;
-      font-weight: bold;
-      text-decoration: none;
-      text-align: center;
-      transition: background-color 0.2s, color 0.2s;
-    }
-    
-    .menu-button:hover {
-      background-color: #9efc9e;
-      color: #000;
-    }
-    h1, h2 {
-      color: #cfeecf;
-      text-align: center;
-      margin: 1rem 0 0.5rem;
-      font-weight: normal;
-    }
-
-    h2 { 
-      font-size: 1.2rem;
-      text-align: left;
-      margin-top: 2rem;
-    }
-
-    a {
-      color: #7de07d;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #d3ffd3;
-      text-decoration: underline;
-    }
-
-    .post {
-      max-width: 900px;
-      width: 100%;
-      margin: 0 auto;
-      border: 1px solid #1f1f1f;
-      padding: 1.5rem 2rem;
-      background: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7), inset 0 2px 0 #0b6623;
-      border-radius: 8px;
-    }
-
-    .meta {
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
-      opacity: 0.8;
-      text-align: center;
-    }
-
-    p {
-      text-align: left;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 0 2px #0b6623, 0 0 1px #0b6623;
-    }
-
-    pre {
-      background-color: #111;
-      padding: 1rem;
-      border: 1px solid #1f1f1f;
-      text-align: left;
-      overflow-x: auto;
-      margin-bottom: 1.5rem;
-      color: #9efc9e;
-      border-radius: 4px;
-      box-shadow: inset 0 2px 0 #0b6623;
-    }
-
-    code {
-      font-family: monospace;
-      color: #9efc9e;
-    }
-
-    .back-link {
-      margin-top: 3rem;
-      text-align: center;
-    }
-
-    .back-link a {
-      font-weight: bold;
-      text-shadow: 0 0 2px #0b6623;
-    }
-
-    /* Scrollbar styling to match hacker theme */
-    body::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    body::-webkit-scrollbar-track {
-      background: #111;
-    }
-
-    body::-webkit-scrollbar-thumb {
-      background: #1f1f1f;
-      border-radius: 5px;
-    }
-
-    body::-webkit-scrollbar-thumb:hover {
-      background: #7de07d;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="post">
+  <div class="post" id="main">
     <h1>> Agent Zero: Security Writeup</h1>
     <div class="meta">Posted: June 27, 2025 | Author: dead1nfluence</div>
 
@@ -167,7 +66,7 @@
 docker run -p 50001:80 frdel/agent-zero-run</code></pre>
 
     <p>Once the setup has completed, you can navigate to port 80 and find the web interface. By default, this interface has no login prompt.</p>
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/agentZero1.png" style="max-width:100%; height:auto;">
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/agentZero1.png" alt="Agent Zero web chat interface loaded on port 80 with no login prompt by default" loading="lazy">
     
     <p>For the purpose of our testing, we did enable basic authentication so as to test authorization and authentication flow issues.</p>
 
@@ -175,7 +74,7 @@ docker run -p 50001:80 frdel/agent-zero-run</code></pre>
 
     <h3>Command Injection</h3>
     <p>The application is a fairly simple interface as can be seen from the previous screenshots. The majority of the functionality resides in the settings page and the chat window which you interact with. Within the Settings window, there was one feature which piqued our interest: </p>
-<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/agentZero2.png" style="max-width:100%; height:auto;">
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/agentZero2.png" alt="Agent Zero settings pane with the option to reset the Docker container root user password" loading="lazy">
     <p>From this pane we could reset the root user's password on the Docker container.</p>
     
     <p>The code for this function could be found within the <code>python/helpers/settings.py</code> file:</p>
@@ -222,7 +121,7 @@ Connection: close
 
     <h3>CSRF — File Upload #1</h3>
     <p>Within the chat bar there are two file upload selectors. The first prompt presents the following screen and is intended to be used to upload directly to the container's directories:</p>
-<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/agentZero3.png" style="max-width:100%; height:auto;">
+<img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/agentZero3.png" alt="Agent Zero file upload prompt exposing direct access to the Docker container file system" loading="lazy">
     <p>This screen allows direct access to the Docker container's file system as we can see, and from here we can upload our file which results in a POST to:</p><code> /upload_work_dir_files </code>
    
     <p>As the rest of the requests to the application were with the Json content-type I thought it might be worth trying to execute a CSRF through the file upload—a much easier target to craft a CSRF with. Multi-part forms used for file uploads are often missed when trying to create a CSRF proof-of-concept, however they frequently succeed in my experience.</p>
@@ -374,6 +273,9 @@ pty.spawn("/bin/sh")
     </div>
   </div>
 
+<footer class="site-footer">
+  <p>// dead1nfluence (Julian B.) — <a href="https://julian-b.xyz/">julian-b.xyz</a> — contact@julian-b[.]xyz</p>
+</footer>
 </body>
 </html>
 

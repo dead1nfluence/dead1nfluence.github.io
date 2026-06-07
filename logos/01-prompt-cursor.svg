@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200" role="img" aria-label="dead1nfluence prompt cursor logo">
+  <defs>
+    <filter id="g1"><feGaussianBlur stdDeviation="1.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="600" height="200" fill="#050505"/>
+  <text x="40" y="118" font-family="monospace" font-size="58" font-weight="bold" fill="#7de07d" filter="url(#g1)">&gt;_</text>
+  <text x="150" y="118" font-family="monospace" font-size="58" font-weight="bold" fill="#9efc9e" filter="url(#g1)">dead1nfluence</text>
+  <rect x="552" y="78" width="22" height="48" fill="#9efc9e" filter="url(#g1)"/>
+</svg>

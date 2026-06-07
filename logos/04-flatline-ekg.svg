@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200" role="img" aria-label="dead1nfluence flatline logo">
+  <defs><filter id="g4"><feGaussianBlur stdDeviation="1.3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+  <rect width="600" height="200" fill="#050505"/>
+  <text x="300" y="90" text-anchor="middle" font-family="monospace" font-size="46" font-weight="bold" fill="#9efc9e" filter="url(#g4)">dead1nfluence</text>
+  <path d="M40 140 H230 l14 -34 l18 60 l16 -78 l16 52 H560" fill="none" stroke="#7de07d" stroke-width="3" filter="url(#g4)"/>
+  <text x="300" y="180" text-anchor="middle" font-family="monospace" font-size="16" fill="#bff8bf">// dead influence, live signal</text>
+</svg>

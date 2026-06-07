@@ -2,8 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>dead1nfluence | Blog</title>
-  <!-- Top Menu Bar with Page Links -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let Him Cook! Hacking the Meatmeet BBQ Probe | dead1nfluence</title>
+  <meta name="description" content="Three-part series reverse engineering the Meatmeet BBQ probe and Android app: ESP32 flash dump, hardcoded credentials, open storage bucket, and a BLE BBQ probe botnet.">
+  <link rel="canonical" href="https://julian-b.xyz/posts/hacking-meatmeet.html">
+  <meta name="author" content="Julian B.">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Let Him Cook! Hacking the Meatmeet BBQ Probe">
+  <meta property="og:description" content="Reverse engineering the Meatmeet BBQ probe and Android app: ESP32 flash dump, hardcoded credentials, open storage bucket, and a BLE BBQ probe botnet.">
+  <meta property="og:url" content="https://julian-b.xyz/posts/hacking-meatmeet.html">
+  <meta property="og:site_name" content="dead1nfluence">
+  <meta property="og:image" content="https://julian-b.xyz/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://julian-b.xyz/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Let Him Cook! Hacking the Meatmeet BBQ Probe",
+    "description": "Reverse engineering the Meatmeet BBQ probe and Android app: ESP32 flash dump, hardcoded credentials, open storage bucket, and a BLE BBQ probe botnet.",
+    "author": { "@type": "Person", "name": "Julian B.", "alternateName": "dead1nfluence", "url": "https://julian-b.xyz/" },
+    "mainEntityOfPage": "https://julian-b.xyz/posts/hacking-meatmeet.html",
+    "publisher": { "@type": "Organization", "name": "dead1nfluence" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- Top Menu Bar with Page Links -->
 <div class="top-menu-buttons">
   <a href="https://julian-b.xyz/index.html" class="menu-button">Main Page</a>
   <a href="https://julian-b.xyz/blogs.html" class="menu-button">Blog Posts</a>
@@ -11,152 +46,8 @@
   <a href="https://julian-b.xyz/publications.html" class="menu-button">Publications</a>
 </div>
 
-<style>
-/* --- Global Page Styles (Terminal/Hacker Look) --- */
-body {
-  background-color: #050505; /* Dark terminal background */
-  color: #9efc9e; /* Light green terminal text */
-  font-family: monospace;
-  line-height: 1.5;
-  margin: 0;
-  padding: 2rem;
-}
-
-    .top-menu-buttons {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background-color: #111;
-      border-bottom: 1px solid #1f1f1f;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0.5rem 0;
-      z-index: 1000;
-    }
-        .menu-button {
-      background-color: #000;
-      color: #9efc9e;
-      border: 1px solid #1f1f1f;
-      padding: 0.5rem 1.5rem;
-      font-family: monospace;
-      font-weight: bold;
-      text-decoration: none;
-      text-align: center;
-      transition: background-color 0.2s, color 0.2s;
-    }
-    
-    .menu-button:hover {
-      background-color: #9efc9e;
-      color: #000;
-    }
-h1, h2, h3, h4, h5, h6 {
-  color: #cfeecf; /* Slightly brighter for headings */
-  margin: 1rem 0 0.5rem;
-  font-weight: normal;
-}
-
-a {
-  color: #7de07d; /* Hacker green links */
-  text-decoration: none;
-}
-
-a:hover {
-  color: #d3ffd3;
-  text-decoration: underline;
-}
-
-p, li, span {
-  color: #9efc9e; /* consistent terminal green */
-}
-
-.bio, .articles, .vulnerabilities {
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
-  border-top: 1px solid #1f1f1f;
-  padding-top: 1rem;
-}
-
-.article {
-  margin-bottom: 2rem;
-  padding-left: 0.5rem;
-}
-
-.article span {
-  color: #bff8bf; /* slightly brighter for descriptions */
-}
-
-.vulnerabilities ul {
-  max-width: 900px;
-  padding-left: 1.2rem;
-}
-
-.vulnerabilities li {
-  margin-bottom: 0.5rem;
-  color: #9efc9e;
-}
-
-.top-menu-buttons {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: #111;
-  border-bottom: 1px solid #1f1f1f;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 0.5rem 0;
-  z-index: 1000;
-}
-
-.menu-button {
-  background-color: #000;
-  color: #9efc9e;
-  border: 1px solid #1f1f1f;
-  padding: 0.5rem 1.5rem;
-  font-family: monospace;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.menu-button:hover {
-  background-color: #9efc9e;
-  color: #000;
-}
-
-/* Optional: fake terminal effect for all text blocks */
-.article span, .bio p, .vulnerabilities li {
-  text-shadow: 0 0 2px #0b6623, 0 0 1px #0b6623;
-}
-
-/* Scrollbar customization for terminal aesthetic */
-body::-webkit-scrollbar {
-  width: 10px;
-}
-
-body::-webkit-scrollbar-track {
-  background: #111;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: #1f1f1f;
-  border-radius: 5px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-  background: #7de07d;
-}
-</style>
-
-</head>
-<body>
-</head>
-<body>
-   <div class="articles">
-    <h2>[*] Let Him Cook! Hacking the Meatmeet BBQ Probe</h2>
+   <div class="articles" id="main">
+    <h1>[*] Let Him Cook! Hacking the Meatmeet BBQ Probe</h1>
     <div class="article">
       <a href="https://www.softwaresecured.com/post/hacking-the-meatmeet-bbq-probe---part-1">Hacking the Meatmeet BBQ Probe — Part 1</a><br>
       <span>// We dismantled the Meatmeet Pro, monitored its BLE and network activity, and dumped the ESP32 flash for analysis.</span>
@@ -169,4 +60,10 @@ body::-webkit-scrollbar-thumb:hover {
       <a href="https://www.softwaresecured.com/post/hacking-the-meatmeet-bbq-probe3">Hacking the Meatmeet BBQ Probe — Part 3</a><br>
       <span>// We uncover BLE flaws in the Meatmeet BBQ probe that allowed us to take over the device, push malicious firmware, and even build a BLE BBQ Probe botnet.</span>
     </div>
-  
+
+<footer class="site-footer">
+  <p>// dead1nfluence (Julian B.) — <a href="https://julian-b.xyz/">julian-b.xyz</a> — contact@julian-b[.]xyz</p>
+</footer>
+
+</body>
+</html>

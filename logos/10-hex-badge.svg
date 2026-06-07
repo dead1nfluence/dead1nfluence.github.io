@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220" role="img" aria-label="dead1nfluence hex badge logo">
+  <defs><filter id="g10"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+  <rect width="200" height="220" fill="#050505"/>
+  <polygon points="100,18 174,60 174,160 100,202 26,160 26,60" fill="#0a0a0a" stroke="#7de07d" stroke-width="3" filter="url(#g10)"/>
+  <polygon points="100,40 154,71 154,149 100,180 46,149 46,71" fill="none" stroke="#1f1f1f" stroke-width="2"/>
+  <text x="100" y="118" text-anchor="middle" font-family="monospace" font-size="60" font-weight="bold" fill="#9efc9e" filter="url(#g10)">d1</text>
+  <text x="100" y="150" text-anchor="middle" font-family="monospace" font-size="13" fill="#bff8bf">0xDEAD</text>
+</svg>

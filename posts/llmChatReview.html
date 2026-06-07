@@ -2,8 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>dead1nfluence | Scraping LLM Chats</title>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="I scraped and grepped every public LLM shared chat link (Claude, Grok, ChatGPT, and more), found leaked secrets and API keys, and documented what was exposed.">
+  <link rel="canonical" href="https://julian-b.xyz/posts/llmChatReview.html">
+  <meta name="author" content="Julian B.">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="I Scraped Every Public LLM Chat So You Didn't Have To">
+  <meta property="og:description" content="Scraping and grepping every public LLM shared chat link for leaked secrets and API keys.">
+  <meta property="og:url" content="https://julian-b.xyz/posts/llmChatReview.html">
+  <meta property="og:site_name" content="dead1nfluence">
+  <meta property="og:image" content="https://julian-b.xyz/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://julian-b.xyz/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "I scraped every public LLM chat so you didn't have to",
+    "description": "Scraping and grepping every public LLM shared chat link for leaked secrets and API keys.",
+    "datePublished": "2025-08-03",
+    "author": { "@type": "Person", "name": "Julian B.", "alternateName": "dead1nfluence", "url": "https://julian-b.xyz/" },
+    "mainEntityOfPage": "https://julian-b.xyz/posts/llmChatReview.html",
+    "publisher": { "@type": "Organization", "name": "dead1nfluence" }
+  }
+  </script>
+  <title>I Scraped Every Public LLM Chat So You Didn't Have To | dead1nfluence</title>
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
 <div class="top-menu-buttons">
   <a href="https://julian-b.xyz/index.html" class="menu-button">Main Page</a>
   <a href="https://julian-b.xyz/blogs.html" class="menu-button">Blog Posts</a>
@@ -11,149 +46,13 @@
   <a href="https://julian-b.xyz/publications.html" class="menu-button">Publications</a>
 </div>
 
-<style>
-    /* --- Global Hacker Terminal Styles --- */
-    body {
-      background-color: #050505;
-      color: #9efc9e;
-      font-family: monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-      line-height: 1.5;
-    }
-
-    .top-menu-buttons {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background-color: #111;
-      border-bottom: 1px solid #1f1f1f;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0.5rem 0;
-      z-index: 1000;
-    }
-        .menu-button {
-      background-color: #000;
-      color: #9efc9e;
-      border: 1px solid #1f1f1f;
-      padding: 0.5rem 1.5rem;
-      font-family: monospace;
-      font-weight: bold;
-      text-decoration: none;
-      text-align: center;
-      transition: background-color 0.2s, color 0.2s;
-    }
-    
-    .menu-button:hover {
-      background-color: #9efc9e;
-      color: #000;
-    }
-    h1, h2 {
-      color: #cfeecf;
-      text-align: center;
-      margin: 1rem 0 0.5rem;
-      font-weight: normal;
-    }
-
-    h2 { 
-      font-size: 1.2rem;
-      text-align: left;
-      margin-top: 2rem;
-    }
-
-    a {
-      color: #7de07d;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #d3ffd3;
-      text-decoration: underline;
-    }
-
-    .post {
-      max-width: 900px;
-      width: 100%;
-      margin: 0 auto;
-      border: 1px solid #1f1f1f;
-      padding: 1.5rem 2rem;
-      background: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7), inset 0 2px 0 #0b6623;
-      border-radius: 8px;
-    }
-
-    .meta {
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
-      opacity: 0.8;
-      text-align: center;
-    }
-
-    p {
-      text-align: left;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 0 2px #0b6623, 0 0 1px #0b6623;
-    }
-
-    pre {
-      background-color: #111;
-      padding: 1rem;
-      border: 1px solid #1f1f1f;
-      text-align: left;
-      overflow-x: auto;
-      margin-bottom: 1.5rem;
-      color: #9efc9e;
-      border-radius: 4px;
-      box-shadow: inset 0 2px 0 #0b6623;
-    }
-
-    code {
-      font-family: monospace;
-      color: #9efc9e;
-    }
-
-    .back-link {
-      margin-top: 3rem;
-      text-align: center;
-    }
-
-    .back-link a {
-      font-weight: bold;
-      text-shadow: 0 0 2px #0b6623;
-    }
-
-    /* Scrollbar styling to match hacker theme */
-    body::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    body::-webkit-scrollbar-track {
-      background: #111;
-    }
-
-    body::-webkit-scrollbar-thumb {
-      background: #1f1f1f;
-      border-radius: 5px;
-    }
-
-    body::-webkit-scrollbar-thumb:hover {
-      background: #7de07d;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="post">
+  <div class="post" id="main">
     <h1>> I scraped every public LLM chat so you didn't have to</h1>
     <div class="meta">Posted: August 3rd, 2025 | Author: dead1nfluence</div>
 
     <p>After all of the hype around the LLM shareable links this week I was inspired to investigate it further. On Friday, Google stopped indexing ChatGPT's shareable links, and several other providers were never indexed at all. However, after having seen that archive.org kept their own record, I was curious to see if other providers were saved there as well. </p>
     
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/archive.png" style="max-width:100%; height:auto;">
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/archive.png" alt="Archive.org Wayback Machine showing saved LLM shareable chat links" loading="lazy">
     <p>As you can see in the screenshot above, they in fact were. With Archive.org, we could now pull down the shareable links for:</p>
 <p>- Grok</p>
 <p>- ChatGPT</p>
@@ -169,19 +68,19 @@
     <pre><code>https://web.archive.org/web/timemap/json?url=chatgpt.com%2Fshare&matchType=prefix&collapse=urlkey&output=json&fl=original%2Cmimetype%2Ctimestamp%2Cendtimestamp%2Cgroupcount%2Cuniqcount&filter=!statuscode%3A%5B45%5D..&limit=1000000&_=1754224717183</code></pre>
     
     <p>Using this, we could run a simple wget on the endpoint saving the content to our local host, then we grepped for the URL patter for each of the providers, and output the result to a file specific to each LLM.</p>
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/wgetAndGrep.png" style="max-width:100%; height:auto;">
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/wgetAndGrep.png" alt="Terminal using wget and grep to extract shared chat URLs per LLM provider" loading="lazy">
     <p>In total we collected 143,142 shared links which we could retrieve the content of. Here's the breakdown for each:</p>
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/linkCount.png" style="max-width:100%; height:auto;">    
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/linkCount.png" alt="Count of collected shared chat links broken down by each LLM provider" loading="lazy">    
     <p>I found that each provider would have a different method of retrieving the chat history from the shared link. Some were a simple GET query to the shared link, while others had made an API call to another endpoint. To determine how it was retrieved I again browsed to a few of the URLs and located the chat content in my Burp Suite history and updated URLs where necessary. </p>
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/qwenContent.png" style="max-width:100%; height:auto;">
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/qwenContent.png" alt="Burp Suite showing the API endpoint Alibaba's Qwen uses to retrieve shared chat content" loading="lazy">
     <p>Seen above is the endpoint used by Alibaba's Qwen LLM.</p>
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/copilotFormat.png" style="max-width:100%; height:auto;">
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/copilotFormat.png" alt="Burp Suite showing the API endpoint Copilot uses to retrieve shared chat content" loading="lazy">
     <p>Seen above is the endpoint used by Copilot.</p>
     
     <p>With the specific endpoints used for chats in hand I did a simple match and replace on the files which contained the URLs we'd be requesting.</p>
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/matchAndReplace.png" style="max-width:100%; height:auto;">    
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/matchAndReplace.png" alt="Match and replace transforming shared link URLs into the chat content API endpoints" loading="lazy">    
     <p>Next was the task of curling each of these endpoints and writing the output to a file within the directory, a simple enough task. </p>
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/copilotResponseCurl.png" style="max-width:100%; height:auto;">
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/copilotResponseCurl.png" alt="Terminal curling the Copilot chat endpoint and writing the JSON response to a file" loading="lazy">
     
     <p>Some providers required you pass a Cloudflare verification before displaying data. To get around, this I whipped up a quick Python script using Cloudscraper which is fairly good at getting around it. </p>
     <pre><code>
@@ -224,16 +123,16 @@ with open(INPUT_FILE, 'r') as infile, open(OUTPUT_FILE, 'w') as outfile:
     <p>Unfortunately, using something like Trufflehog on this dataset didn't seem to work too well. Instead, I had to run grep and try to manually review the results to see if anything could be useable for an attacker. With a couple of regexes I was able to find AWS Access Key IDs, a Replicate API token, and more. There is still tons of data to parse through and it's very likely that much more will be found over the coming days that may be worth mentioning in future updates. For now, here's a quick glimpse:</p>
 
     
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/accessKeyId.png" style="max-width:100%; height:auto;">
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/accessKeyId.png" alt="Grep output revealing a leaked AWS Access Key ID inside scraped chat data" loading="lazy">
     
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/iotIoEasyApiKey.png" style="max-width:100%; height:auto;">
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/iotIoEasyApiKey.png" alt="Grep output revealing a leaked iot.io easy API key inside scraped chat data" loading="lazy">
     
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/ak_ApiKey.png" style="max-width:100%; height:auto;">
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/ak_ApiKey.png" alt="Grep output revealing a leaked ak_ prefixed API key inside scraped chat data" loading="lazy">
     
-        <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/replicateToken.png" style="max-width:100%; height:auto;">
+        <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/replicateToken.png" alt="Grep output revealing a leaked Replicate API token inside scraped chat data" loading="lazy">
     <p>While these providers do tell their users that the shared links are public to anyone, I think that most who have used this feature would not have expected that these links could be findable by anyone, and certainly not indexed and readily available for others to view. This could prove to be a very valuable data source for attackers and red teamers alike. With this, I can now search the dataset at any time for target companies to see if employees may have disclosed sensitive information by accident.</p>
     <p>A fun little thing I noticed when reviewing the output from the Claude chats was that each identified the user who created it and listed their full name. </p>
-    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/claudeFullNames.png" style="max-width:100%; height:auto;">
+    <img src="https://raw.githubusercontent.com/dead1nfluence/dead1nfluence.github.io/refs/heads/main/posts/pictures/claudeFullNames.png" alt="Claude shared chat output exposing the full name of the user who created it" loading="lazy">
         
     <p>[~] Special thanks to SyndromeImposter and MasterSplinter for their help with this! </p>
     <div class="back-link">
@@ -241,5 +140,8 @@ with open(INPUT_FILE, 'r') as infile, open(OUTPUT_FILE, 'w') as outfile:
     </div>
   </div>
 
+<footer class="site-footer">
+  <p>// dead1nfluence (Julian B.) — <a href="https://julian-b.xyz/">julian-b.xyz</a> — contact@julian-b[.]xyz</p>
+</footer>
 </body>
 </html>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200" role="img" aria-label="dead1nfluence glitch logo">
+  <rect width="600" height="200" fill="#050505"/>
+  <g font-family="monospace" font-size="56" font-weight="bold">
+    <text x="46" y="118" fill="#0b6623" opacity="0.8">dead1nfluence</text>
+    <text x="42" y="114" fill="#7de07d" opacity="0.6">dead1nfluence</text>
+    <text x="44" y="116" fill="#9efc9e">dead1nfluence</text>
+  </g>
+  <rect x="44" y="84" width="512" height="4" fill="#d3ffd3" opacity="0.5"/>
+  <rect x="44" y="104" width="320" height="3" fill="#050505" opacity="0.7"/>
+</svg>

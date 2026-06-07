@@ -2,8 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>dead1nfluence | Blog</title>
-  <!-- Top Menu Bar with Page Links -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dead1nfluence (Julian B.) — Penetration Tester &amp; Security Researcher</title>
+  <meta name="description" content="Julian B. (dead1nfluence) — penetration tester and security researcher with 50+ CVEs. IoT and hardware hacking, Furbo and Meatmeet exploits, BLE research, and LLM security.">
+  <link rel="canonical" href="https://julian-b.xyz/">
+  <meta name="author" content="Julian B.">
+  <meta name="robots" content="index,follow">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="dead1nfluence (Julian B.) — Penetration Tester &amp; Security Researcher">
+  <meta property="og:description" content="Penetration tester and security researcher with 50+ CVEs. IoT and hardware hacking, Furbo and Meatmeet exploits, BLE research, and LLM security.">
+  <meta property="og:url" content="https://julian-b.xyz/">
+  <meta property="og:site_name" content="dead1nfluence">
+  <meta property="og:image" content="https://julian-b.xyz/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="dead1nfluence (Julian B.) — Penetration Tester &amp; Security Researcher">
+  <meta name="twitter:description" content="Penetration tester and security researcher with 50+ CVEs. IoT and hardware hacking, Furbo and Meatmeet exploits, BLE research, and LLM security.">
+  <meta name="twitter:image" content="https://julian-b.xyz/og-image.png">
+  <!-- JSON-LD: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Julian B.",
+    "alternateName": "dead1nfluence",
+    "url": "https://julian-b.xyz/",
+    "jobTitle": "Penetration Tester & Security Researcher",
+    "worksFor": { "@type": "Organization", "name": "Software Secured" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Vancouver", "addressRegion": "British Columbia", "addressCountry": "CA" },
+    "knowsAbout": ["Penetration Testing", "IoT Security", "Hardware Hacking", "Bluetooth Low Energy", "Vulnerability Research", "LLM Security"]
+  }
+  </script>
+
+<link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- Top Menu Bar with Page Links -->
 <div class="top-menu-buttons">
   <a href="index.html" class="menu-button">Main Page</a>
   <a href="blogs.html" class="menu-button">Blog Posts</a>
@@ -11,122 +56,7 @@
   <a href="publications.html" class="menu-button">Publications</a>
 </div>
 
-<style>
-/* --- Global Page Styles (Terminal/Hacker Look) --- */
-body {
-  background-color: #050505; /* Dark terminal background */
-  color: #9efc9e; /* Light green terminal text */
-  font-family: monospace;
-  line-height: 1.5;
-  margin: 0;
-  padding: 2rem;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: #cfeecf; /* Slightly brighter for headings */
-  margin: 1rem 0 0.5rem;
-  font-weight: normal;
-}
-
-a {
-  color: #7de07d; /* Hacker green links */
-  text-decoration: none;
-}
-
-a:hover {
-  color: #d3ffd3;
-  text-decoration: underline;
-}
-
-p, li, span {
-  color: #9efc9e; /* consistent terminal green */
-}
-
-.bio, .articles, .vulnerabilities {
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
-  border-top: 1px solid #1f1f1f;
-  padding-top: 1rem;
-}
-
-.article {
-  margin-bottom: 2rem;
-  padding-left: 0.5rem;
-}
-
-.article span {
-  color: #bff8bf; /* slightly brighter for descriptions */
-}
-
-.vulnerabilities ul {
-  max-width: 900px;
-  padding-left: 1.2rem;
-}
-
-.vulnerabilities li {
-  margin-bottom: 0.5rem;
-  color: #9efc9e;
-}
-
-.top-menu-buttons {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: #111;
-  border-bottom: 1px solid #1f1f1f;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 0.5rem 0;
-  z-index: 1000;
-}
-
-.menu-button {
-  background-color: #000;
-  color: #9efc9e;
-  border: 1px solid #1f1f1f;
-  padding: 0.5rem 1.5rem;
-  font-family: monospace;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.menu-button:hover {
-  background-color: #9efc9e;
-  color: #000;
-}
-
-/* Optional: fake terminal effect for all text blocks */
-.article span, .bio p, .vulnerabilities li {
-  text-shadow: 0 0 2px #0b6623, 0 0 1px #0b6623;
-}
-
-/* Scrollbar customization for terminal aesthetic */
-body::-webkit-scrollbar {
-  width: 10px;
-}
-
-body::-webkit-scrollbar-track {
-  background: #111;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: #1f1f1f;
-  border-radius: 5px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-  background: #7de07d;
-}
-</style>
-
-</head>
-<body>
-
-    <div class="bio">
+    <div class="bio" id="main">
   <h1>> dead1nfluence (Julian B.)</h1>
 
   
@@ -140,41 +70,57 @@ body::-webkit-scrollbar-thumb:hover {
   <div class="articles">
     <h2>[*] Recent Posts</h2>
     <div class="article">
-      <a href="https://www.softwaresecured.com/post/hacking-the-meatmeet-bbq-probe---part-1">Let Him Cook! Hacking the Meatmeet BBQ Probe—Part 1</a><br>
-      <span>// We dismantled the Meatmeet Pro, monitored its BLE and network activity, and dumped the ESP32 flash for analysis.</span>
+      <a href="posts/hacking-meatmeet.html">Let Him Cook! Hacking the Meatmeet BBQ Probe (Series)</a><br>
+      <span>// Three-part series: reverse engineering the Meatmeet BBQ probe and Android app into a BLE BBQ probe botnet. Read all parts here.</span>
     </div>
-    <div class="article">
-      <a href="https://www.softwaresecured.com/post/hacking-the-meatmeet-bbq-probe---part-2">Let Him Cook! Hacking the Meatmeet BBQ Probe—Part 2</a><br>
-      <span>// We break down the Meatmeet Android app and find a number of vulnerabilities including: hard coded credentials, insecure memory management, and an open storage bucket.</span>
-    </div>
-    <div class="article">
-      <a href="https://www.softwaresecured.com/post/hacking-the-meatmeet-bbq-probe3">Let Him Cook! Hacking the Meatmeet BBQ Probe—Part 3</a><br>
-      <span>// We uncover BLE flaws in the Meatmeet BBQ probe that allowed us to take over the device, push malicious firmware, and even build a BLE BBQ Probe botnet.</span>
-    </div>
+    <details class="article">
+      <summary>Meatmeet — individual parts (3)</summary>
+      <div class="article">
+        <a href="https://www.softwaresecured.com/post/hacking-the-meatmeet-bbq-probe---part-1">Part 1</a><br>
+        <span>// We dismantled the Meatmeet Pro, monitored its BLE and network activity, and dumped the ESP32 flash for analysis.</span>
+      </div>
+      <div class="article">
+        <a href="https://www.softwaresecured.com/post/hacking-the-meatmeet-bbq-probe---part-2">Part 2</a><br>
+        <span>// We break down the Meatmeet Android app and find a number of vulnerabilities including: hard coded credentials, insecure memory management, and an open storage bucket.</span>
+      </div>
+      <div class="article">
+        <a href="https://www.softwaresecured.com/post/hacking-the-meatmeet-bbq-probe3">Part 3</a><br>
+        <span>// We uncover BLE flaws in the Meatmeet BBQ probe that allowed us to take over the device, push malicious firmware, and even build a BLE BBQ Probe botnet.</span>
+      </div>
+    </details>
         <div class="article">
-      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-1-acquiring-the-hardware">Hacking Furbo—A Hardware Research Project—Part 1: Acquiring the Hardware</a><br>
-      <span>// In mid-March our research team began looking for a target to assess as part of a long-term project. After some time searching, we set our sights on Furbo. Tomofun, the creators of Furbo, offers two devices which you can set up in your home to monitor your pet's activities throughout the day and, with the higher-end Furbo 360, toss treats their way, send voice messages, and monitor their activities more thoroughly.</span>
+      <a href="posts/hacking-furbo.html">Hacking Furbo: A Pet Project (Series)</a><br>
+      <span>// Six-part series reverse engineering the Furbo 360 and Furbo Mini pet cameras and mobile app, uncovering nearly two dozen vulnerabilities. Read all parts here.</span>
     </div>
-    <div class="article">
-      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-2-mobile-and-p2p-exploits">Hacking Furbo—A Hardware Research Project–Part 2: Mobile and P2P Exploits</a><br>
-      <span>// In the second part of our Hacking Furbo blog series we will focus on the mobile application and P2P communications from it. We will detail our process of identifying the mobile-side of the P2P communications and hooking them with Frida for a deeper understanding of how they work.</span>
-    </div>
-        <div class="article">
-      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-3-chip-off-and-persistence">Hacking Furbo—A Hardware Research Project—Part 3: Chip Off and Persistence </a><br>
-      <span>// In this third part of our Hacking Furbo blog series we will focus on the Furbo hardware; specifically our attempts at performing a chip off procedure on the device in order to dump and re-apply our own customized firmware. We will detail how we used the XGecu T48 programmer for the firmware extraction, our struggles to get the correct adapter, and our sad attempt at using a Probe Reader to avoid performing a chip off procedure.</span>
-    </div>
-        <div class="article">
-      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-4-debugging-deviceids-and-dev-tools">Hacking Furbo—A Hardware Research Project—Part 4: Debugging, DeviceIDs, and Dev Tools</a><br>
-      <span>// In Part 4 of the Hacking Furbo blog series we will detail our dynamic analysis of the Furbo devices. We will show how the device was logging information, how that helped us better understand the binaries and their functions, as well as some developer features that we discovered after reviewing the file system. Using the information collected from our debugging we were able to exploit two more vulnerabilities: a Denial of Service and an Application Logic Bypass which allowed us to have unlimited trial licenses!</span>
-    </div>
-        <div class="article">
-      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-5-exploiting-ble">Hacking Furbo—A Hardware Research Project—Part 5: Exploiting BLE</a><br>
-      <span>// This post examines Furbo’s Bluetooth Low Energy (BLE) communication, finding vulnerabilities that expose Wi-Fi credentials, enable device resets, and reveal hidden GATT characteristics. The team demonstrates how attackers could hijack video streams or re-register devices.</span>
-    </div>
-        <div class="article">
-      <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-6-the-finale">Hacking Furbo—A Hardware Research Project—Part 6: The Finale</a><br>
-      <span>// Final chapter: insecure Wi-Fi credentials, risky S3 log uploads, long-lived device tokens, and global MQTT activity exposure, plus our June 23, 2025 disclosure to Tomofun.</span>
-    </div>
+    <details class="article">
+      <summary>Furbo — individual parts (6)</summary>
+      <div class="article">
+        <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-1-acquiring-the-hardware">Part 1: Acquiring the Hardware</a><br>
+        <span>// Choosing Furbo as a long-term hardware research target and acquiring the devices.</span>
+      </div>
+      <div class="article">
+        <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-2-mobile-and-p2p-exploits">Part 2: Mobile and P2P Exploits</a><br>
+        <span>// Identifying the mobile-side P2P communications and hooking them with Frida.</span>
+      </div>
+      <div class="article">
+        <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-3-chip-off-and-persistence">Part 3: Chip Off and Persistence</a><br>
+        <span>// Chip-off firmware extraction with the XGecu T48 programmer and persistence attempts.</span>
+      </div>
+      <div class="article">
+        <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-4-debugging-deviceids-and-dev-tools">Part 4: Debugging, DeviceIDs, and Dev Tools</a><br>
+        <span>// Dynamic analysis revealing a Denial of Service and an Application Logic Bypass for unlimited trial licenses.</span>
+      </div>
+      <div class="article">
+        <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-5-exploiting-ble">Part 5: Exploiting BLE</a><br>
+        <span>// BLE flaws exposing Wi-Fi credentials, enabling device resets, and revealing hidden GATT characteristics.</span>
+      </div>
+      <div class="article">
+        <a href="https://www.softwaresecured.com/post/hacking-furbo-a-hardware-research-project-part-6-the-finale">Part 6: The Finale</a><br>
+        <span>// Insecure Wi-Fi credentials, risky S3 log uploads, long-lived device tokens, and our June 23, 2025 disclosure to Tomofun.</span>
+      </div>
+    </details>
+  </div>
+
   <div class="articles">
     <h2>[*] Recent Publications</h2>
     <div class="article">
@@ -185,6 +131,7 @@ body::-webkit-scrollbar-thumb:hover {
       <a href="https://www.404media.co/more-than-130-000-claude-grok-chatgpt-and-other-llm-chats-readable-on-archive-org/">More than 130,000 Claude, Grok, ChatGPT, and Other LLM Chats Readable on Archive.org</a><br>
       <span>// The issue of publicly saving shared LLM chats is bigger than just Google.</span>
     </div>
+  </div>
 
   <div class="vulnerabilities">
     <h2>[*] Recently Disclosed Vulnerabilities</h2>
@@ -214,8 +161,7 @@ CVE-2025-XXXX (Meatmeet) Unauthenticated Device Takeover</a></li>
     </ul>
   </div>
 
-  
-   </div><!-- Hacker-style Command Prompt Pop-up (index only) -->
+  <!-- Hacker-style Command Prompt Pop-up (index only) -->
 <div id="dead1nfluence-modal" aria-hidden="true" role="dialog" aria-label="dead1nfluence prompt" style="display:none;">
   <div class="dead1nfluence-overlay"></div>
   <div class="dead1nfluence-terminal" role="document">
@@ -249,30 +195,30 @@ CVE-2025-XXXX (Meatmeet) Unauthenticated Device Takeover</a></li>
 .dead1nfluence-terminal {
   position: relative;
   width: min(820px, 92%);
-  background: linear-gradient(180deg,#050505 0%, #0a0a0a 100%);
-  border: 1px solid #1f1f1f;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 2px 0 #0b6623 inset;
+  background: linear-gradient(180deg,#15171a 0%, #1b1e22 100%);
+  border: 1px solid #34383d;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 2px 0 #444444 inset;
   font-family: monospace;
-  color: #9efc9e;
+  color: #d0d0d0;
   border-radius: 8px;
   overflow: hidden;
   z-index: 2;
 }
-.term-header { display:flex; align-items:center; gap:0.6rem; padding:0.6rem 0.9rem; background:#111; }
+.term-header { display:flex; align-items:center; gap:0.6rem; padding:0.6rem 0.9rem; background:#202327; }
 .term-header .dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
 .term-header .red{ background:#ff5f56; }
 .term-header .yellow{ background:#ffbd2e; }
 .term-header .green{ background:#27c93f; }
-.term-header .title { margin-left:0.3rem; font-size:0.9rem; color:#cfeecf; }
-.term-close { margin-left:auto; background:transparent; border:none; color:#9efc9e; font-size:1.2rem; cursor:pointer; }
+.term-header .title { margin-left:0.3rem; font-size:0.9rem; color:#ffffff; }
+.term-close { margin-left:auto; background:transparent; border:none; color:#d0d0d0; font-size:1.2rem; cursor:pointer; }
 .term-body { padding:1rem; min-height:160px; max-height:60vh; overflow:auto; }
-.term-line { padding:0.12rem 0; color:#bff8bf; }
-.prompt-prefix { color:#7de07d; font-weight:600; }
-.term-input { background: transparent; border: none; outline: none; color: #9efc9e; font-family: monospace; font-size: 1rem; width: 100%; caret-color: #9efc9e; }
-.blinker { display:inline-block; width:10px; height:18px; margin-left:6px; background: rgba(158,252,158,0.18); animation: blink 1s steps(2, start) infinite; border-radius:2px; }
+.term-line { padding:0.12rem 0; color:#e0e0e0; }
+.prompt-prefix { color:#b0b0b0; font-weight:600; }
+.term-input { background: transparent; border: none; outline: none; color: #d0d0d0; font-family: monospace; font-size: 1rem; width: 100%; caret-color: #d0d0d0; }
+.blinker { display:inline-block; width:10px; height:18px; margin-left:6px; background: rgba(208,208,208,0.18); animation: blink 1s steps(2, start) infinite; border-radius:2px; }
 @keyframes blink { 50% { opacity: 0.02; } }
-.term-output { margin-top:0.6rem; color:#d3ffd3; font-size:0.95rem; }
-.term-footer { padding:0.6rem 1rem; border-top:1px solid rgba(255,255,255,0.1); font-size:0.8rem; color:#bff0b5; }
+.term-output { margin-top:0.6rem; color:#ffffff; font-size:0.95rem; }
+.term-footer { padding:0.6rem 1rem; border-top:1px solid rgba(255,255,255,0.1); font-size:0.8rem; color:#e0e0e0; }
 
 /* small screens */
 @media (max-width:520px){
@@ -309,7 +255,7 @@ CVE-2025-XXXX (Meatmeet) Unauthenticated Device Takeover</a></li>
   function appendOut(text, error=false){
     const div = document.createElement('div');
     div.className = 'term-line';
-    div.style.color = error ? '#ffb3b3' : '#d3ffd3';
+    div.style.color = error ? '#ffb3b3' : '#ffffff';
     div.textContent = text;
     output.appendChild(div);
     const body = document.getElementById('term-body');
@@ -354,6 +300,9 @@ CVE-2025-XXXX (Meatmeet) Unauthenticated Device Takeover</a></li>
 })();
 </script>
 
+<footer class="site-footer">
+  <p>// dead1nfluence (Julian B.) — <a href="https://julian-b.xyz/">julian-b.xyz</a> — contact@julian-b[.]xyz</p>
+</footer>
 
 </body>
 </html>

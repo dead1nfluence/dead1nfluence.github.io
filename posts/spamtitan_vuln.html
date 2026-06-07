@@ -5,150 +5,45 @@
   <meta property="og:title" content="SpamTitan Vulnerability Disclosure">
   <meta property="og:description" content="Vulnerability disclosure. A missing authorization vulnerability discovered during research performed with Philippe Caturegli of Seralys.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://julian-b.xyz/posts/spamtian_vuln.html">
-  <meta property="og:image" content="https://yourusername.github.io/blog/images/preview.png">
+  <meta property="og:url" content="https://julian-b.xyz/posts/spamtitan_vuln.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A missing authorization vulnerability in SpamTitan allowing unauthenticated user creation (CVE-2024-45438), discovered with Philippe Caturegli of Seralys.">
+  <link rel="canonical" href="https://julian-b.xyz/posts/spamtitan_vuln.html">
+  <meta name="author" content="Julian B.">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:site_name" content="dead1nfluence">
+  <meta property="og:image" content="https://julian-b.xyz/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://julian-b.xyz/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Unauthenticated User Creation in SpamTitan",
+    "description": "A missing authorization vulnerability in SpamTitan allowing unauthenticated user creation (CVE-2024-45438).",
+    "datePublished": "2025-08-20",
+    "author": { "@type": "Person", "name": "Julian B.", "alternateName": "dead1nfluence", "url": "https://julian-b.xyz/" },
+    "mainEntityOfPage": "https://julian-b.xyz/posts/spamtitan_vuln.html",
+    "publisher": { "@type": "Organization", "name": "dead1nfluence" }
+  }
+  </script>
+  <title>Unauthenticated User Creation in SpamTitan (CVE-2024-45438) | dead1nfluence</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
 <div class="top-menu-buttons">
   <a href="https://julian-b.xyz/index.html" class="menu-button">Main Page</a>
   <a href="https://julian-b.xyz/blogs.html" class="menu-button">Blog Posts</a>
   <a href="https://julian-b.xyz/vulnerabilities.html" class="menu-button">Vulnerabilities</a>
   <a href="https://julian-b.xyz/publications.html" class="menu-button">Publications</a>
 </div>
-  <title>dead1nfluence | SpamTitan</title>
-  <style>
-    /* --- Global Hacker Terminal Styles --- */
-    body {
-      background-color: #050505;
-      color: #9efc9e;
-      font-family: monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-      line-height: 1.5;
-    }
-    .top-menu-buttons {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background-color: #111;
-    border-bottom: 1px solid #1f1f1f;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 0.5rem 0;
-    z-index: 1000;
-  }
-      .menu-button {
-    background-color: #000;
-    color: #9efc9e;
-    border: 1px solid #1f1f1f;
-    padding: 0.5rem 1.5rem;
-    font-family: monospace;
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color 0.2s, color 0.2s;
-  }
-  
-  .menu-button:hover {
-    background-color: #9efc9e;
-    color: #000;
-  }
-    h1, h2 {
-      color: #cfeecf;
-      text-align: center;
-      margin: 1rem 0 0.5rem;
-      font-weight: normal;
-    }
-
-    h2 { 
-      font-size: 1.2rem;
-      text-align: left;
-      margin-top: 2rem;
-    }
-
-    a {
-      color: #7de07d;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #d3ffd3;
-      text-decoration: underline;
-    }
-
-    .post {
-      max-width: 900px;
-      width: 100%;
-      margin: 0 auto;
-      border: 1px solid #1f1f1f;
-      padding: 1.5rem 2rem;
-      background: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7), inset 0 2px 0 #0b6623;
-      border-radius: 8px;
-    }
-
-    .meta {
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
-      opacity: 0.8;
-      text-align: center;
-    }
-
-    p {
-      text-align: left;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 0 2px #0b6623, 0 0 1px #0b6623;
-    }
-
-    pre {
-      background-color: #111;
-      padding: 1rem;
-      border: 1px solid #1f1f1f;
-      text-align: left;
-      overflow-x: auto;
-      margin-bottom: 1.5rem;
-      color: #9efc9e;
-      border-radius: 4px;
-      box-shadow: inset 0 2px 0 #0b6623;
-    }
-
-    code {
-      font-family: monospace;
-      color: #9efc9e;
-    }
-
-    .back-link {
-      margin-top: 3rem;
-      text-align: center;
-    }
-
-    .back-link a {
-      font-weight: bold;
-      text-shadow: 0 0 2px #0b6623;
-    }
-
-    /* Scrollbar styling to match hacker theme */
-    body::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    body::-webkit-scrollbar-track {
-      background: #111;
-    }
-
-    body::-webkit-scrollbar-thumb {
-      background: #1f1f1f;
-      border-radius: 5px;
-    }
-
-    body::-webkit-scrollbar-thumb:hover {
-      background: #7de07d;
-    }
-  </style>
-</head>
-<body>
-  <div class="post">
+  <div class="post" id="main">
     <h1>> Unauthenticated User Creation in SpamTitan</h1>
 <div class="meta">Posted: August 20, 2025 | Author: dead1nfluence</div>
 
@@ -230,5 +125,8 @@ Host: spamtitan.local</code></pre>
     </div>
   </div>
 
+<footer class="site-footer">
+  <p>// dead1nfluence (Julian B.) — <a href="https://julian-b.xyz/">julian-b.xyz</a> — contact@julian-b[.]xyz</p>
+</footer>
 </body>
 </html>
