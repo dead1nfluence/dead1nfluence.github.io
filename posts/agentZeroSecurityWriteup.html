@@ -11,6 +11,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_CA">
   <meta property="og:title" content="Agent Zero Security Research — CSRF File Upload to RCE">
   <meta property="og:description" content="Two CSRF file upload vulnerabilities leading to RCE in the Agent Zero open-source project.">
   <meta property="og:url" content="https://julian-b.xyz/posts/agentZeroSecurityWriteup.html">
@@ -27,14 +28,28 @@
     "headline": "Agent Zero Security Research",
     "description": "Two CSRF file upload vulnerabilities leading to RCE in the Agent Zero open-source project.",
     "datePublished": "2025-06-27",
+    "image": "https://julian-b.xyz/posts/pictures/agentZero1.png",
+    "dateModified": "2026-06-07",
     "author": { "@type": "Person", "name": "Julian B.", "alternateName": "dead1nfluence", "url": "https://julian-b.xyz/" },
     "mainEntityOfPage": "https://julian-b.xyz/posts/agentZeroSecurityWriteup.html",
     "publisher": { "@type": "Organization", "name": "dead1nfluence" }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://julian-b.xyz/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog Posts", "item": "https://julian-b.xyz/blogs.html" },
+      { "@type": "ListItem", "position": 3, "name": "Agent Zero Security Research", "item": "https://julian-b.xyz/posts/agentZeroSecurityWriteup.html" }
+    ]
+  }
+  </script>
   <title>Agent Zero Security Research — CSRF File Upload to RCE | dead1nfluence</title>
 
   <link rel="stylesheet" href="/style.css">
+  <link rel="alternate" type="application/rss+xml" title="dead1nfluence — Blog" href="/feed.xml">
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
@@ -271,6 +286,19 @@ pty.spawn("/bin/sh")
 
     <div class="back-link">
       <a href="../index.html">[*] Back to main</a>
+    </div>
+  </div>
+
+<div class="articles related-posts">
+    <h2>[*] Related Posts</h2>
+    <div class="article">
+      <a href="mindsdb_report.html">Don't Mind(sDB) Me: RCE on MindsDB</a>
+    </div>
+    <div class="article">
+      <a href="llmChatReview.html">I Scraped Every Public LLM Chat So You Didn't Have To</a>
+    </div>
+    <div class="article">
+      <a href="phishingWithGrok.html">Stealing Your Chats in 2 Clicks — Phishing With Grok</a>
     </div>
   </div>
 

@@ -5,6 +5,7 @@
   <meta property="og:title" content="MindsDB Vulnerability Report">
   <meta property="og:description" content="Vulnerability write-up for MindsDB file/model upload and path traversal issues.">
   <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_CA">
   <meta property="og:url" content="https://julian-b.xyz/posts/mindsdb_report.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="How combining a path traversal with an arbitrary file upload led to remote code execution (RCE) on the MindsDB AI analytics engine. CVE-2025-61468 and CVE-2025-61469.">
@@ -27,15 +28,29 @@
     "headline": "Don't Mind(sDB) me: RCE on MindsDB",
     "description": "Combining a path traversal with an arbitrary file upload to achieve RCE on the MindsDB AI analytics engine.",
     "datePublished": "2025-09-16",
+    "image": "https://julian-b.xyz/posts/pictures/mindsdb_roadtrip.jpeg",
+    "dateModified": "2026-06-07",
     "author": { "@type": "Person", "name": "Julian B.", "alternateName": "dead1nfluence", "url": "https://julian-b.xyz/" },
     "mainEntityOfPage": "https://julian-b.xyz/posts/mindsdb_report.html",
     "publisher": { "@type": "Organization", "name": "dead1nfluence" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://julian-b.xyz/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog Posts", "item": "https://julian-b.xyz/blogs.html" },
+      { "@type": "ListItem", "position": 3, "name": "Don't Mind(sDB) me: RCE on MindsDB", "item": "https://julian-b.xyz/posts/mindsdb_report.html" }
+    ]
   }
   </script>
 
   <title>Don't Mind(sDB) me: RCE on MindsDB (CVE-2025-61468) | dead1nfluence</title>
 
   <link rel="stylesheet" href="/style.css">
+  <link rel="alternate" type="application/rss+xml" title="dead1nfluence — Blog" href="/feed.xml">
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
@@ -91,6 +106,19 @@
 
     <div class="back-link">
       <a href="../index.html">[*] Back to main</a>
+    </div>
+  </div>
+
+<div class="articles related-posts">
+    <h2>[*] Related Posts</h2>
+    <div class="article">
+      <a href="agentZeroSecurityWriteup.html">Agent Zero: CSRF File Upload to RCE</a>
+    </div>
+    <div class="article">
+      <a href="spamtitan_vuln.html">Unauthenticated User Creation in SpamTitan</a>
+    </div>
+    <div class="article">
+      <a href="llmChatReview.html">I Scraped Every Public LLM Chat So You Didn't Have To</a>
     </div>
   </div>
 

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>dead1nfluence — Julian B.</title>
+  <link>https://julian-b.xyz/</link>
+  <description>Security research by Julian B. (dead1nfluence): IoT and hardware hacking, BLE exploits, vulnerability research, and LLM security.</description>
+  <language>en-ca</language>
+  <lastBuildDate>Thu, 25 Sep 2025 12:00:00 +0000</lastBuildDate>
+  <atom:link href="https://julian-b.xyz/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Let Him Cook! Hacking the Meatmeet BBQ Probe | dead1nfluence</title>
+    <link>https://julian-b.xyz/posts/hacking-meatmeet.html</link>
+    <guid isPermaLink="true">https://julian-b.xyz/posts/hacking-meatmeet.html</guid>
+    <pubDate>Thu, 25 Sep 2025 12:00:00 +0000</pubDate>
+    <description>Three-part series reverse engineering the Meatmeet BBQ probe and Android app: ESP32 flash dump, hardcoded credentials, open storage bucket, and a BLE BBQ probe botnet.</description>
+  </item>
+  <item>
+    <title>Don&#x27;t Mind(sDB) me: RCE on MindsDB (CVE-2025-61468) | dead1nfluence</title>
+    <link>https://julian-b.xyz/posts/mindsdb_report.html</link>
+    <guid isPermaLink="true">https://julian-b.xyz/posts/mindsdb_report.html</guid>
+    <pubDate>Tue, 16 Sep 2025 12:00:00 +0000</pubDate>
+    <description>How combining a path traversal with an arbitrary file upload led to remote code execution (RCE) on the MindsDB AI analytics engine. CVE-2025-61468 and CVE-2025-61469.</description>
+  </item>
+  <item>
+    <title>Unauthenticated User Creation in SpamTitan (CVE-2024-45438) | dead1nfluence</title>
+    <link>https://julian-b.xyz/posts/spamtitan_vuln.html</link>
+    <guid isPermaLink="true">https://julian-b.xyz/posts/spamtitan_vuln.html</guid>
+    <pubDate>Wed, 20 Aug 2025 12:00:00 +0000</pubDate>
+    <description>A missing authorization vulnerability in SpamTitan allowing unauthenticated user creation (CVE-2024-45438), discovered with Philippe Caturegli of Seralys.</description>
+  </item>
+  <item>
+    <title>Stealing Your Chats In 2 Clicks — Phishing With Grok | dead1nfluence</title>
+    <link>https://julian-b.xyz/posts/phishingWithGrok.html</link>
+    <guid isPermaLink="true">https://julian-b.xyz/posts/phishingWithGrok.html</guid>
+    <pubDate>Sun, 17 Aug 2025 12:00:00 +0000</pubDate>
+    <description>How a built-in Grok feature can be abused with clickable links and hidden ASCII smuggling characters to phish users and exfiltrate their chat memory in two clicks.</description>
+  </item>
+  <item>
+    <title>I Scraped Every Public LLM Chat So You Didn&#x27;t Have To | dead1nfluence</title>
+    <link>https://julian-b.xyz/posts/llmChatReview.html</link>
+    <guid isPermaLink="true">https://julian-b.xyz/posts/llmChatReview.html</guid>
+    <pubDate>Sun, 03 Aug 2025 12:00:00 +0000</pubDate>
+    <description>I scraped and grepped every public LLM shared chat link (Claude, Grok, ChatGPT, and more), found leaked secrets and API keys, and documented what was exposed.</description>
+  </item>
+  <item>
+    <title>Agent Zero Security Research — CSRF File Upload to RCE | dead1nfluence</title>
+    <link>https://julian-b.xyz/posts/agentZeroSecurityWriteup.html</link>
+    <guid isPermaLink="true">https://julian-b.xyz/posts/agentZeroSecurityWriteup.html</guid>
+    <pubDate>Fri, 27 Jun 2025 12:00:00 +0000</pubDate>
+    <description>Security research on the Agent Zero open-source project: two CSRF file upload vulnerabilities leading to remote code execution. CVE-2025-55881 and CVE-2025-55882.</description>
+  </item>
+  <item>
+    <title>Hacking Furbo: A Pet Project — IoT Security Research | dead1nfluence</title>
+    <link>https://julian-b.xyz/posts/hacking-furbo.html</link>
+    <guid isPermaLink="true">https://julian-b.xyz/posts/hacking-furbo.html</guid>
+    <pubDate>Wed, 23 Apr 2025 12:00:00 +0000</pubDate>
+    <description>Six-part series reverse engineering the Furbo 360 and Furbo Mini pet cameras and mobile app, uncovering nearly two dozen vulnerabilities across hardware, P2P, and BLE.</description>
+  </item>
+  <item>
+    <title>Review: Andrew Bellini&#x27;s IoT &amp; Hardware Hacking Course (TCM) | dead1nfluence</title>
+    <link>https://julian-b.xyz/posts/IoT-Course-Review.html</link>
+    <guid isPermaLink="true">https://julian-b.xyz/posts/IoT-Course-Review.html</guid>
+    <pubDate>Wed, 23 Apr 2025 12:00:00 +0000</pubDate>
+    <description>A review of Andrew Bellini&#x27;s &#x27;Beginner&#x27;s Guide to IoT and Hardware Hacking&#x27; course on TCM Security, covering electronics fundamentals through practical hardware hacking.</description>
+  </item>
+  <item>
+    <title>Basic Hardware &amp; IoT Hacking Purchase Guide (Canadian Sources) | dead1nfluence</title>
+    <link>https://julian-b.xyz/posts/Hardware-Testing-Purchase-List.html</link>
+    <guid isPermaLink="true">https://julian-b.xyz/posts/Hardware-Testing-Purchase-List.html</guid>
+    <pubDate>Wed, 23 Apr 2025 12:00:00 +0000</pubDate>
+    <description>A basic hardware and IoT hacking purchase guide for budget setups, with sources compiled for Canadian researchers.</description>
+  </item>
+</channel>
+</rss>
